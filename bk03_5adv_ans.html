@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第3回 ⑤応用演習 解答欄</title>
+<style>
+:root{--navy:#1a1a2e;--blue:#1565c0;--ltblue:#ddeeff;--ok:#2e7d32;--okbg:#e8f5e9;--ng:#c62828;--ngbg:#ffebee;--yel:#fff8e1;--gray:#666}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Meiryo","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:#222;background:#f4f6fa;line-height:1.55}
+header.top{background:var(--navy);color:#fff;padding:14px 16px}
+header.top h1{margin:0;font-size:20px}
+header.top .sub{font-size:12px;color:#aab;margin-top:2px}
+.wrap{max-width:980px;margin:0 auto;padding:6px 8px 30px}
+.bar{background:var(--navy);color:#fff;padding:6px 8px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.bar .ttl{font-size:15px;font-weight:bold;margin-right:auto}
+.bar button{font-size:14px;padding:5px 11px;border:1px solid #fff}
+.bar button.sub,.bar button.warn{background:#fff}
+.card{background:#fff;border:1px solid #cfd8e6;border-radius:8px;padding:8px 10px;margin:8px 0}
+.card h2{margin:0 0 6px;font-size:15px;color:#fff;background:var(--blue);padding:4px 8px;border-radius:5px}
+.card h3{margin:8px 0 3px;font-size:14px;color:var(--navy);border-left:5px solid var(--blue);padding-left:6px}
+.who{display:flex;gap:10px;flex-wrap:wrap}
+.who label{flex:1 1 220px;font-size:14px}
+.who input{width:100%;font-size:16px;padding:7px;border:1px solid #99a;border-radius:5px}
+.help{font-size:13px;color:#333;background:#eef4ff;border:1px solid #bcd;border-radius:6px;padding:8px 12px}
+.help ul{margin:4px 0 0 18px;padding:0}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+button{font-size:16px;padding:10px 18px;border-radius:7px;border:1px solid var(--blue);background:var(--blue);color:#fff;cursor:pointer;font-family:inherit}
+button.sub{background:#fff;color:var(--blue)}
+button.warn{background:#fff;color:var(--ng);border-color:var(--ng)}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;margin:3px 0;font-size:13px}
+th,td{border:1px solid #556;padding:2px 5px;text-align:center;vertical-align:middle}
+th{background:var(--navy);color:#fff;font-weight:bold}
+th.b{background:var(--blue)}th.g{background:#2e7d32}th.p{background:#6a1b9a}th.r{background:#b71c1c}th.o{background:#e64a19}
+td.l{text-align:left}td.r{text-align:right}td.given{background:#f7f7f7}td.sum{background:#eee;font-weight:bold}
+td.mir{background:#f0f0f0;color:#888;font-size:12px}
+input.n,input.t{font-size:15px;padding:3px 4px;border:1px solid #99a;border-radius:4px;background:var(--yel);font-family:inherit}
+input.n{width:7.5em;text-align:right}
+input.t{width:9em;text-align:center}
+td input.n.w{width:6.2em}
+table.t3 input.n{width:4.8em;font-size:15px}
+table.t3 input.n.w{width:4.8em;font-size:15px}
+table.t3 .mark{display:block;width:auto;font-size:14px;line-height:1.1}
+table.t3 th,table.t3 td{padding:3px 3px}
+.rg label{margin:0 6px;white-space:nowrap;font-size:15px}
+.rg input{width:20px;height:20px;vertical-align:middle;margin-right:3px}
+.ok{background:var(--okbg)!important;border-color:var(--ok)!important}
+.ng{background:var(--ngbg)!important;border-color:var(--ng)!important}
+.mark{display:inline-block;width:1.2em;font-weight:bold;font-size:17px}
+.mark.ok{color:var(--ok);background:none!important}.mark.ng{color:var(--ng);background:none!important}
+.stem{font-size:14px;text-align:left}
+.q{margin:3px 0}
+.note{font-size:12px;color:var(--gray)}
+.two{display:flex;gap:14px;flex-wrap:wrap}.two>div{flex:1 1 320px}
+#result{display:none;border:2px solid var(--blue);margin:6px 0}
+#result.show{display:block}
+#result .score{font-size:20px;font-weight:bold;color:var(--navy)}
+#result .score small{font-size:13px;font-weight:normal;color:#444;margin-left:8px}
+#result ul{margin:2px 0 0 18px;padding:0;font-size:13px}
+#result li{font-size:13px}
+#result p{margin:2px 0;font-size:13px}
+#result li.ok{color:var(--ok);background:none!important}#result li.ng{color:var(--ng);background:none!important}
+.qz .zgrid{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0}
+.qz .zgroup{border:2px solid #556;border-radius:8px;overflow:hidden;background:#fff}
+.qz .zgroup.bs{flex:2 1 330px}.qz .zgroup.pl{flex:2 1 300px}
+.qz .zh{color:#fff;text-align:center;font-weight:bold;padding:2px;font-size:13px}
+.qz .zcols{display:flex}
+.qz .zcols>.zone,.qz .zcols>.zstack{flex:1 1 0;min-width:0}
+.qz .zstack{display:flex;flex-direction:column}.qz .zstack>.zone{flex:1 1 0}
+.qz .zone{border:2px solid #999;margin:2px;border-radius:6px;min-height:70px;background:#fafafa;transition:background .1s}
+.qz .zone .zt{color:#fff;text-align:center;font-weight:bold;font-size:15px;padding:1px}
+.qz .zone .zb{min-height:42px;padding:2px}
+.qz .z0{border-color:#1565c0}.qz .z0 .zt{background:#1565c0}
+.qz .z1{border-color:#e64a19}.qz .z1 .zt{background:#e64a19}
+.qz .z2{border-color:#388e3c}.qz .z2 .zt{background:#388e3c}
+.qz .z3{border-color:#b71c1c}.qz .z3 .zt{background:#b71c1c}
+.qz .z4{border-color:#6a1b9a}.qz .z4 .zt{background:#6a1b9a}
+.qz .zone.over{background:#fff9c4}
+.qz .pool{border:2px dashed #889;border-radius:8px;min-height:44px;padding:2px;background:#f4f6fa;margin:4px 0}
+.qz .pool .hint{color:#667;font-size:13px;padding:6px}
+.qz .tile{display:inline-block;margin:2px;padding:5px 10px;border:2px solid #556;border-radius:8px;background:#fff;font-size:15px;font-weight:bold;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none}
+.qz .tile.sel{outline:3px solid #f9a825}
+.qz .tile.drag{position:fixed;z-index:1000;pointer-events:none;box-shadow:0 6px 14px rgba(0,0,0,.35);opacity:.92}
+.qz .tile.ok{border-color:var(--ok);background:var(--okbg)}.qz .tile.ng{border-color:var(--ng);background:var(--ngbg)}
+#qtime{font-size:24px;font-weight:bold;font-variant-numeric:tabular-nums;color:var(--navy);min-width:5.5em;display:inline-block}
+#qmsg{font-size:15px;font-weight:bold;color:var(--navy);margin:2px 0}
+#qmsg:empty{display:none}
+.qz .qstat{font-size:13px;color:#333}
+.qz .qrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+td.lab{position:relative;background:#fffdf2}
+td.lab::before{content:attr(data-l);position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-size:40px;font-weight:bold;color:rgba(21,101,192,.20);pointer-events:none;line-height:1}
+td.lab input,td.lab select{position:relative;background:rgba(255,248,225,.35)}
+select.t{width:11.5em;font-size:15px;padding:3px;border:1px solid #99a;border-radius:4px;font-family:inherit}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;margin:6px 8px 0;max-width:964px}
+@media(min-width:996px){.tabs{margin-left:auto;margin-right:auto}}
+.tabs button{background:#fff;color:var(--blue);border:2px solid var(--blue);font-size:14px;padding:5px 10px;border-radius:7px}
+.tabs button.on{background:var(--blue);color:#fff}
+.tabs .bd{font-size:12px;margin-left:5px;font-weight:bold}
+.tabs .bd.ng{color:#c62828;background:none!important}.tabs .bd.ok{color:#2e7d32;background:none!important}
+.tabs button.on .bd.ng,.tabs button.on .bd.ok{color:#fff}
+.panel{display:none}.panel.on{display:block}
+.printhead{display:none}
+@media print{
+ .tabs{display:none!important}
+ .panel{display:block!important}
+ @page{size:A4;margin:9mm}
+ body{background:#fff;font-size:10.5pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .bar,.help,.btns,.noprint{display:none!important}
+ .printhead{display:block;border:1px solid #333;padding:6px 10px;margin-bottom:6px;font-size:11pt}
+ .wrap{padding:0;max-width:none}
+ .tw,.two,table{break-inside:avoid}
+ h3{break-after:avoid}
+ .card{margin:6px 0;padding:6px 8px;border-radius:0}
+ .card h2{font-size:12pt;padding:3px 8px}
+ table{font-size:9.5pt}
+ input.n,input.t{border:none!important;font-size:10pt;padding:1px 2px}
+ input.n{width:6em}input.t{width:8em}
+ select.t{border:none!important;font-size:10pt;-webkit-appearance:none;appearance:none;width:9em}
+ .qz .qrow button{display:none}
+}
+</style></head>
+<body>
+<noscript><div class="card" style="border-color:#c62828">JavaScriptを有効にしてください。</div></noscript>
+<div class="bar" id="top"><span class="ttl">第3回 ⑤応用演習 解答欄</span>
+ <button id="btn-grade" type="button">採点する</button>
+ <button id="btn-print" type="button" class="sub">PDF保存・印刷</button>
+ <button id="btn-clear" type="button" class="warn">入力を消す</button>
+</div>
+<nav class="tabs noprint"><button type="button">問1 H商会の一巡<span class="bd"></span></button><button type="button">問2 ケヤキ商店B/S・P/L<span class="bd"></span></button><button type="button">問3 借入金の逆算<span class="bd"></span></button></nav>
+<div class="wrap">
+<div class="card" id="result"></div>
+<div class="printhead">第3回 ⑤応用演習 解答欄　／　出力：<span id="ph-time"></span>　得点：<b id="ph-score">未採点</b>　採点回数：<span id="ph-att">0 回</span><span id="ph-quiz"></span></div>
+<div class="panel"><div class="card"><h2>問1　H商会の一巡（6月）</h2>
+<div class="tw"><table class=""><tr><td>6/1</td><td class="l">現金 80,000円 の出資（資本金）を受けて、H商会を開業した</td></tr><tr><td>6/5</td><td class="l">手数料 12,000円 を現金で受け取った</td></tr><tr><td>6/10</td><td class="l">銀行から 40,000円 を借入れ、全額を銀行預金に入金した</td></tr><tr><td>6/18</td><td class="l">取引先に現金 30,000円 を貸し付けた</td></tr><tr><td>6/30</td><td class="l">借入金の利息 800円 を銀行預金から支払った</td></tr></table></div>
+<p class="note">科目：現金・銀行預金・貸付金／借入金／資本金／支払利息／受取手数料</p>
+<h3>(1) 仕訳</h3><div class="tw"><table class=""><tr><th>日付</th><th>借方（左）</th><th>金額</th><th>貸方（右）</th><th>金額</th></tr><tr><td>6/1</td><td><select class="t sel" data-k="p1j0dn" aria-label="p1j0dn"><option value="">― 選択 ―</option><option value="銀行預金">銀行預金</option><option value="現金">現金</option><option value="貸付金">貸付金</option><option value="資本金">資本金</option><option value="借入金">借入金</option><option value="売掛金">売掛金</option><option value="商品">商品</option></select></td><td><input type="text" class="n w" data-k="p1j0da" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1j0da"></td><td><select class="t sel" data-k="p1j0cn" aria-label="p1j0cn"><option value="">― 選択 ―</option><option value="借入金">借入金</option><option value="受取手数料">受取手数料</option><option value="資本金">資本金</option><option value="支払利息">支払利息</option><option value="買掛金">買掛金</option><option value="現金">現金</option><option value="商品売買益">商品売買益</option></select></td><td><input type="text" class="n w" data-k="p1j0ca" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1j0ca"></td></tr><tr><td>6/5</td><td><select class="t sel" data-k="p1j1dn" aria-label="p1j1dn"><option value="">― 選択 ―</option><option value="売掛金">売掛金</option><option value="貸付金">貸付金</option><option value="現金">現金</option><option value="資本金">資本金</option><option value="銀行預金">銀行預金</option><option value="借入金">借入金</option><option value="商品">商品</option></select></td><td><input type="text" class="n w" data-k="p1j1da" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1j1da"></td><td><select class="t sel" data-k="p1j1cn" aria-label="p1j1cn"><option value="">― 選択 ―</option><option value="支払手数料">支払手数料</option><option value="商品売買益">商品売買益</option><option value="受取手数料">受取手数料</option><option value="借入金">借入金</option><option value="資本金">資本金</option><option value="給料">給料</option><option value="支払利息">支払利息</option></select></td><td><input type="text" class="n w" data-k="p1j1ca" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1j1ca"></td></tr><tr><td>6/10</td><td><select class="t sel" data-k="p1j2dn" aria-label="p1j2dn"><option value="">― 選択 ―</option><option value="現金">現金</option><option value="貸付金">貸付金</option><option value="銀行預金">銀行預金</option><option value="売掛金">売掛金</option><option value="借入金">借入金</option><option value="資本金">資本金</option><option value="商品">商品</option></select></td><td><input type="text" class="n w" data-k="p1j2da" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1j2da"></td><td><select class="t sel" data-k="p1j2cn" aria-label="p1j2cn"><option value="">― 選択 ―</option><option value="貸付金">貸付金</option><option value="買掛金">買掛金</option><option value="資本金">資本金</option><option value="借入金">借入金</option><option value="銀行預金">銀行預金</option><option value="受取手数料">受取手数料</option><option value="現金">現金</option></select></td><td><input type="text" class="n w" data-k="p1j2ca" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1j2ca"></td></tr><tr><td>6/18</td><td><select class="t sel" data-k="p1j3dn" aria-label="p1j3dn"><option value="">― 選択 ―</option><option value="借入金">借入金</option><option value="売掛金">売掛金</option><option value="現金">現金</option><option value="貸付金">貸付金</option><option value="銀行預金">銀行預金</option><option value="資本金">資本金</option><option value="商品">商品</option></select></td><td><input type="text" class="n w" data-k="p1j3da" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1j3da"></td><td><select class="t sel" data-k="p1j3cn" aria-label="p1j3cn"><option value="">― 選択 ―</option><option value="銀行預金">銀行預金</option><option value="貸付金">貸付金</option><option value="現金">現金</option><option value="借入金">借入金</option><option value="売掛金">売掛金</option><option value="資本金">資本金</option><option value="商品">商品</option></select></td><td><input type="text" class="n w" data-k="p1j3ca" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1j3ca"></td></tr><tr><td>6/30</td><td><select class="t sel" data-k="p1j4dn" aria-label="p1j4dn"><option value="">― 選択 ―</option><option value="支払手数料">支払手数料</option><option value="給料">給料</option><option value="受取手数料">受取手数料</option><option value="支払家賃">支払家賃</option><option value="支払利息">支払利息</option><option value="借入金">借入金</option><option value="商品売買益">商品売買益</option></select></td><td><input type="text" class="n w" data-k="p1j4da" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1j4da"></td><td><select class="t sel" data-k="p1j4cn" aria-label="p1j4cn"><option value="">― 選択 ―</option><option value="現金">現金</option><option value="貸付金">貸付金</option><option value="借入金">借入金</option><option value="銀行預金">銀行預金</option><option value="資本金">資本金</option><option value="売掛金">売掛金</option><option value="支払利息">支払利息</option></select></td><td><input type="text" class="n w" data-k="p1j4ca" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1j4ca"></td></tr></table></div>
+<h3>(2) 集計（金額のある欄のみ。減少は−）</h3><div class="tw"><table class="t3"><tr><th></th><th class="b">現金</th><th class="b">銀行預金</th><th class="b">貸付金</th><th class="o">借入金</th><th class="g">資本金</th><th class="p">受取手数料</th><th class="r">支払利息</th></tr><tr><td>6/1</td><td><input type="text" class="n w" data-k="p1s0c0" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1s0c0"></td><td><input type="text" class="n" data-k="p1s0c1" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s0c1"></td><td><input type="text" class="n" data-k="p1s0c2" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s0c2"></td><td><input type="text" class="n" data-k="p1s0c3" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s0c3"></td><td><input type="text" class="n w" data-k="p1s0c4" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1s0c4"></td><td><input type="text" class="n" data-k="p1s0c5" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s0c5"></td><td><input type="text" class="n" data-k="p1s0c6" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s0c6"></td></tr><tr><td>6/5</td><td><input type="text" class="n w" data-k="p1s1c0" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1s1c0"></td><td><input type="text" class="n" data-k="p1s1c1" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s1c1"></td><td><input type="text" class="n" data-k="p1s1c2" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s1c2"></td><td><input type="text" class="n" data-k="p1s1c3" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s1c3"></td><td><input type="text" class="n" data-k="p1s1c4" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s1c4"></td><td><input type="text" class="n w" data-k="p1s1c5" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1s1c5"></td><td><input type="text" class="n" data-k="p1s1c6" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s1c6"></td></tr><tr><td>6/10</td><td><input type="text" class="n" data-k="p1s2c0" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s2c0"></td><td><input type="text" class="n w" data-k="p1s2c1" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1s2c1"></td><td><input type="text" class="n" data-k="p1s2c2" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s2c2"></td><td><input type="text" class="n w" data-k="p1s2c3" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1s2c3"></td><td><input type="text" class="n" data-k="p1s2c4" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s2c4"></td><td><input type="text" class="n" data-k="p1s2c5" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s2c5"></td><td><input type="text" class="n" data-k="p1s2c6" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s2c6"></td></tr><tr><td>6/18</td><td><input type="text" class="n w" data-k="p1s3c0" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1s3c0"></td><td><input type="text" class="n" data-k="p1s3c1" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s3c1"></td><td><input type="text" class="n w" data-k="p1s3c2" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1s3c2"></td><td><input type="text" class="n" data-k="p1s3c3" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s3c3"></td><td><input type="text" class="n" data-k="p1s3c4" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s3c4"></td><td><input type="text" class="n" data-k="p1s3c5" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s3c5"></td><td><input type="text" class="n" data-k="p1s3c6" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s3c6"></td></tr><tr><td>6/30</td><td><input type="text" class="n" data-k="p1s4c0" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s4c0"></td><td><input type="text" class="n w" data-k="p1s4c1" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1s4c1"></td><td><input type="text" class="n" data-k="p1s4c2" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s4c2"></td><td><input type="text" class="n" data-k="p1s4c3" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s4c3"></td><td><input type="text" class="n" data-k="p1s4c4" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s4c4"></td><td><input type="text" class="n" data-k="p1s4c5" inputmode="text" autocomplete="off" spellcheck="false" aria-label="p1s4c5"></td><td><input type="text" class="n w" data-k="p1s4c6" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1s4c6"></td></tr><tr><td class="sum">残高</td><td><input type="text" class="n w" data-k="p1bal0" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1bal0"></td><td><input type="text" class="n w" data-k="p1bal1" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1bal1"></td><td><input type="text" class="n w" data-k="p1bal2" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1bal2"></td><td><input type="text" class="n w" data-k="p1bal3" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1bal3"></td><td><input type="text" class="n w" data-k="p1bal4" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1bal4"></td><td><input type="text" class="n w" data-k="p1bal5" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1bal5"></td><td><input type="text" class="n w" data-k="p1bal6" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1bal6"></td></tr></table></div>
+<h3>(3) B/S・P/L</h3><div class="two"><div><div class="tw"><table class=""><tr><th colspan="4" class="b">B/S（H商会 6/30）</th></tr><tr><th>資産</th><th>金額</th><th>負債・純資産</th><th>金額</th></tr><tr><td class="l">現金</td><td><input type="text" class="n w" data-k="p1bs1" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1bs1"></td><td class="l">借入金（負債）</td><td><input type="text" class="n w" data-k="p1bs4" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1bs4"></td></tr><tr><td class="l">銀行預金</td><td><input type="text" class="n w" data-k="p1bs2" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1bs2"></td><td class="l">資本金（純資産）</td><td><input type="text" class="n w" data-k="p1bs5" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1bs5"></td></tr><tr><td class="l">貸付金</td><td><input type="text" class="n w" data-k="p1bs3" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1bs3"></td><td class="l">利益（純資産）</td><td><input type="text" class="n w" data-k="p1bs6" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1bs6"></td></tr><tr><td class="sum l">合計</td><td><input type="text" class="n w" data-k="p1bstl" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1bstl"></td><td class="sum l">合計</td><td><input type="text" class="n w" data-k="p1bstr" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1bstr"></td></tr></table></div></div><div><div class="tw"><table class=""><tr><th colspan="4" class="g">P/L（H商会 6/1〜6/30）</th></tr><tr><th>費用</th><th>金額</th><th>収益</th><th>金額</th></tr><tr><td class="l">支払利息</td><td><input type="text" class="n w" data-k="p1pl1" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1pl1"></td><td class="l">受取手数料</td><td><input type="text" class="n w" data-k="p1pl3" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1pl3"></td></tr><tr><td class="l">利益</td><td><input type="text" class="n w" data-k="p1pl2" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1pl2"></td><td></td><td></td></tr><tr><td class="sum l">合計</td><td><input type="text" class="n w" data-k="p1pltl" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1pltl"></td><td class="sum l">合計</td><td><input type="text" class="n w" data-k="p1pltr" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p1pltr"></td></tr></table></div></div></div></div></div>
+<div class="panel"><div class="card"><h2>問2　ケヤキ商店のB/SとP/L</h2>
+<p class="stem">20x1年12月31日のB/Sと、同年中のP/Lを作成（円）。</p>
+<div><span style="display:inline-block;background:#ddeeff;border:1px solid #1565c0;border-radius:5px;padding:3px 9px;margin:2px">買掛金 250</span><span style="display:inline-block;background:#ddeeff;border:1px solid #1565c0;border-radius:5px;padding:3px 9px;margin:2px">支払家賃 280</span><span style="display:inline-block;background:#ddeeff;border:1px solid #1565c0;border-radius:5px;padding:3px 9px;margin:2px">売掛金 220</span><span style="display:inline-block;background:#ddeeff;border:1px solid #1565c0;border-radius:5px;padding:3px 9px;margin:2px">給料 150</span><span style="display:inline-block;background:#ddeeff;border:1px solid #1565c0;border-radius:5px;padding:3px 9px;margin:2px">銀行預金 330</span><span style="display:inline-block;background:#ddeeff;border:1px solid #1565c0;border-radius:5px;padding:3px 9px;margin:2px">借入金 400</span><span style="display:inline-block;background:#ddeeff;border:1px solid #1565c0;border-radius:5px;padding:3px 9px;margin:2px">受取手数料 970</span><span style="display:inline-block;background:#ddeeff;border:1px solid #1565c0;border-radius:5px;padding:3px 9px;margin:2px">貸付金 190</span><span style="display:inline-block;background:#ddeeff;border:1px solid #1565c0;border-radius:5px;padding:3px 9px;margin:2px">商品 150</span><span style="display:inline-block;background:#ddeeff;border:1px solid #1565c0;border-radius:5px;padding:3px 9px;margin:2px">現金 500</span><span style="display:inline-block;background:#ddeeff;border:1px solid #1565c0;border-radius:5px;padding:3px 9px;margin:2px">支払利息 300</span><span style="display:inline-block;background:#ddeeff;border:1px solid #1565c0;border-radius:5px;padding:3px 9px;margin:2px">（期首）資本金 500</span></div>
+<p class="note">科目を選び、金額を入力。順番は自由。</p>
+<div class="two">
+<div><h3>B/S　左側（資産）</h3><div class="tw"><table class=""><tr><th>勘定科目</th><th>金額</th></tr><tr class="srow" data-set="p2bsl"><td><select class="t sel" data-sn aria-label="p2bsl 勘定科目"><option value="">― 選択 ―</option><option value="現金">現金</option><option value="銀行預金">銀行預金</option><option value="売掛金">売掛金</option><option value="商品">商品</option><option value="貸付金">貸付金</option><option value="車両運搬具">車両運搬具</option><option value="機械設備">機械設備</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2bsl 金額"></td></tr><tr class="srow" data-set="p2bsl"><td><select class="t sel" data-sn aria-label="p2bsl 勘定科目"><option value="">― 選択 ―</option><option value="現金">現金</option><option value="銀行預金">銀行預金</option><option value="売掛金">売掛金</option><option value="商品">商品</option><option value="貸付金">貸付金</option><option value="車両運搬具">車両運搬具</option><option value="機械設備">機械設備</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2bsl 金額"></td></tr><tr class="srow" data-set="p2bsl"><td><select class="t sel" data-sn aria-label="p2bsl 勘定科目"><option value="">― 選択 ―</option><option value="現金">現金</option><option value="銀行預金">銀行預金</option><option value="売掛金">売掛金</option><option value="商品">商品</option><option value="貸付金">貸付金</option><option value="車両運搬具">車両運搬具</option><option value="機械設備">機械設備</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2bsl 金額"></td></tr><tr class="srow" data-set="p2bsl"><td><select class="t sel" data-sn aria-label="p2bsl 勘定科目"><option value="">― 選択 ―</option><option value="現金">現金</option><option value="銀行預金">銀行預金</option><option value="売掛金">売掛金</option><option value="商品">商品</option><option value="貸付金">貸付金</option><option value="車両運搬具">車両運搬具</option><option value="機械設備">機械設備</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2bsl 金額"></td></tr><tr class="srow" data-set="p2bsl"><td><select class="t sel" data-sn aria-label="p2bsl 勘定科目"><option value="">― 選択 ―</option><option value="現金">現金</option><option value="銀行預金">銀行預金</option><option value="売掛金">売掛金</option><option value="商品">商品</option><option value="貸付金">貸付金</option><option value="車両運搬具">車両運搬具</option><option value="機械設備">機械設備</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2bsl 金額"></td></tr><tr class="srow" data-set="p2bsl"><td><select class="t sel" data-sn aria-label="p2bsl 勘定科目"><option value="">― 選択 ―</option><option value="現金">現金</option><option value="銀行預金">銀行預金</option><option value="売掛金">売掛金</option><option value="商品">商品</option><option value="貸付金">貸付金</option><option value="車両運搬具">車両運搬具</option><option value="機械設備">機械設備</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2bsl 金額"></td></tr></table></div><p>合計 <input type="text" class="n w" data-k="p2bstl" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p2bstl"></p></div>
+<div><h3>B/S　右側（負債・純資産）</h3><div class="tw"><table class=""><tr><th>勘定科目</th><th>金額</th></tr><tr class="srow" data-set="p2bsr"><td><select class="t sel" data-sn aria-label="p2bsr 勘定科目"><option value="">― 選択 ―</option><option value="買掛金">買掛金</option><option value="借入金">借入金</option><option value="資本金">資本金</option><option value="当期純利益">当期純利益</option><option value="貸付金">貸付金</option><option value="売掛金">売掛金</option><option value="受取手数料">受取手数料</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2bsr 金額"></td></tr><tr class="srow" data-set="p2bsr"><td><select class="t sel" data-sn aria-label="p2bsr 勘定科目"><option value="">― 選択 ―</option><option value="買掛金">買掛金</option><option value="借入金">借入金</option><option value="資本金">資本金</option><option value="当期純利益">当期純利益</option><option value="貸付金">貸付金</option><option value="売掛金">売掛金</option><option value="受取手数料">受取手数料</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2bsr 金額"></td></tr><tr class="srow" data-set="p2bsr"><td><select class="t sel" data-sn aria-label="p2bsr 勘定科目"><option value="">― 選択 ―</option><option value="買掛金">買掛金</option><option value="借入金">借入金</option><option value="資本金">資本金</option><option value="当期純利益">当期純利益</option><option value="貸付金">貸付金</option><option value="売掛金">売掛金</option><option value="受取手数料">受取手数料</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2bsr 金額"></td></tr><tr class="srow" data-set="p2bsr"><td><select class="t sel" data-sn aria-label="p2bsr 勘定科目"><option value="">― 選択 ―</option><option value="買掛金">買掛金</option><option value="借入金">借入金</option><option value="資本金">資本金</option><option value="当期純利益">当期純利益</option><option value="貸付金">貸付金</option><option value="売掛金">売掛金</option><option value="受取手数料">受取手数料</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2bsr 金額"></td></tr><tr class="srow" data-set="p2bsr"><td><select class="t sel" data-sn aria-label="p2bsr 勘定科目"><option value="">― 選択 ―</option><option value="買掛金">買掛金</option><option value="借入金">借入金</option><option value="資本金">資本金</option><option value="当期純利益">当期純利益</option><option value="貸付金">貸付金</option><option value="売掛金">売掛金</option><option value="受取手数料">受取手数料</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2bsr 金額"></td></tr></table></div><p>合計 <input type="text" class="n w" data-k="p2bstr" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p2bstr"></p></div>
+</div><div class="two">
+<div><h3>P/L　左側（費用・利益）</h3><div class="tw"><table class=""><tr><th>勘定科目</th><th>金額</th></tr><tr class="srow" data-set="p2pll"><td><select class="t sel" data-sn aria-label="p2pll 勘定科目"><option value="">― 選択 ―</option><option value="支払家賃">支払家賃</option><option value="支払利息">支払利息</option><option value="給料">給料</option><option value="当期純利益">当期純利益</option><option value="費用合計">費用合計</option><option value="受取手数料">受取手数料</option><option value="支払手数料">支払手数料</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2pll 金額"></td></tr><tr class="srow" data-set="p2pll"><td><select class="t sel" data-sn aria-label="p2pll 勘定科目"><option value="">― 選択 ―</option><option value="支払家賃">支払家賃</option><option value="支払利息">支払利息</option><option value="給料">給料</option><option value="当期純利益">当期純利益</option><option value="費用合計">費用合計</option><option value="受取手数料">受取手数料</option><option value="支払手数料">支払手数料</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2pll 金額"></td></tr><tr class="srow" data-set="p2pll"><td><select class="t sel" data-sn aria-label="p2pll 勘定科目"><option value="">― 選択 ―</option><option value="支払家賃">支払家賃</option><option value="支払利息">支払利息</option><option value="給料">給料</option><option value="当期純利益">当期純利益</option><option value="費用合計">費用合計</option><option value="受取手数料">受取手数料</option><option value="支払手数料">支払手数料</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2pll 金額"></td></tr><tr class="srow" data-set="p2pll"><td><select class="t sel" data-sn aria-label="p2pll 勘定科目"><option value="">― 選択 ―</option><option value="支払家賃">支払家賃</option><option value="支払利息">支払利息</option><option value="給料">給料</option><option value="当期純利益">当期純利益</option><option value="費用合計">費用合計</option><option value="受取手数料">受取手数料</option><option value="支払手数料">支払手数料</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2pll 金額"></td></tr><tr class="srow" data-set="p2pll"><td><select class="t sel" data-sn aria-label="p2pll 勘定科目"><option value="">― 選択 ―</option><option value="支払家賃">支払家賃</option><option value="支払利息">支払利息</option><option value="給料">給料</option><option value="当期純利益">当期純利益</option><option value="費用合計">費用合計</option><option value="受取手数料">受取手数料</option><option value="支払手数料">支払手数料</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2pll 金額"></td></tr><tr class="srow" data-set="p2pll"><td><select class="t sel" data-sn aria-label="p2pll 勘定科目"><option value="">― 選択 ―</option><option value="支払家賃">支払家賃</option><option value="支払利息">支払利息</option><option value="給料">給料</option><option value="当期純利益">当期純利益</option><option value="費用合計">費用合計</option><option value="受取手数料">受取手数料</option><option value="支払手数料">支払手数料</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2pll 金額"></td></tr></table></div><p>合計 <input type="text" class="n w" data-k="p2pltl" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p2pltl"></p></div>
+<div><h3>P/L　右側（収益）</h3><div class="tw"><table class=""><tr><th>勘定科目</th><th>金額</th></tr><tr class="srow" data-set="p2plr"><td><select class="t sel" data-sn aria-label="p2plr 勘定科目"><option value="">― 選択 ―</option><option value="支払手数料">支払手数料</option><option value="商品売買益">商品売買益</option><option value="受取手数料">受取手数料</option><option value="給料">給料</option><option value="支払家賃">支払家賃</option><option value="支払利息">支払利息</option><option value="当期純利益">当期純利益</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2plr 金額"></td></tr><tr class="srow" data-set="p2plr"><td><select class="t sel" data-sn aria-label="p2plr 勘定科目"><option value="">― 選択 ―</option><option value="支払手数料">支払手数料</option><option value="商品売買益">商品売買益</option><option value="受取手数料">受取手数料</option><option value="給料">給料</option><option value="支払家賃">支払家賃</option><option value="支払利息">支払利息</option><option value="当期純利益">当期純利益</option></select></td><td><input type="text" class="n" data-sa inputmode="text" autocomplete="off" spellcheck="false" aria-label="p2plr 金額"></td></tr></table></div><p>合計 <input type="text" class="n w" data-k="p2pltr" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p2pltr"></p></div>
+</div></div></div>
+<div class="panel"><div class="card"><h2>問3　M商会：借入金を逆算する</h2>
+<div class="tw"><table class=""><tr><th>日付</th><th>取引</th></tr><tr><td>10/1</td><td class="l">現金 50,000円 を出資（資本金）して開業した</td></tr><tr><td>10/8</td><td class="l">銀行から現金 x円 を借入れた</td></tr><tr><td>10/15</td><td class="l">手数料 18,000円 を現金で受け取った</td></tr><tr><td>10/25</td><td class="l">従業員に給料 7,000円 を現金で支払った</td></tr><tr><td>10/31</td><td class="l">今月分の店舗家賃 3,000円 を現金で支払った</td></tr></table></div>
+<p class="stem">月末のB/Sの資産は、現金 78,000円 のみである。</p>
+<h3>(1) 当月のP/Lの利益</h3>
+<div class="tw"><table class=""><tr><th>収益</th><th>費用</th><th>利益</th></tr><tr><td><input type="text" class="n w" data-k="p3r" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p3r"></td><td><input type="text" class="n w" data-k="p3e" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p3e"></td><td><input type="text" class="n w" data-k="p3p" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p3p"></td></tr></table></div>
+<h3>(2) B/S（10/31）：貸借一致から借入金 x を求める</h3>
+<div class="tw"><table class=""><tr><th>資産</th><th>金額</th><th>負債・純資産</th><th>金額</th></tr><tr><td class="l">現金</td><td><input type="text" class="n w" data-k="p3bscash" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p3bscash"></td><td class="l">借入金（負債）x</td><td><input type="text" class="n w" data-k="p3x" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p3x"></td></tr><tr><td></td><td></td><td class="l">資本金（純資産）</td><td><input type="text" class="n w" data-k="p3bscap" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p3bscap"></td></tr><tr><td></td><td></td><td class="l">利益（純資産）</td><td><input type="text" class="n w" data-k="p3bsp" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p3bsp"></td></tr><tr><td class="sum l">合計</td><td><input type="text" class="n w" data-k="p3bstl" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p3bstl"></td><td class="sum l">合計</td><td><input type="text" class="n w" data-k="p3bstr" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p3bstr"></td></tr></table></div>
+<h3>(3) 検算：現金の集計</h3>
+<p class="stem">50,000 ＋ 借入 <input type="text" class="n w" data-k="p3x2" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p3x2"> ＋ 18,000 − 7,000 − 3,000 ＝ 現金残高 <input type="text" class="n w" data-k="p3cash" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="p3cash"> 円</p>
+</div></div>
+<div class="btns noprint"><button type="button" class="sub" onclick="window.scrollTo(0,0)">↑ 上に戻る</button></div>
+</div>
+<script>
+var KEY_ID="adv03";
+var KEY_B64="eyJpdGVtcyI6IFt7ImlkIjogInAxajBkbiIsICJnIjogInAxIiwgInQiOiAidHh0IiwgImEiOiBbIuePvumHkSJdfSwgeyJpZCI6ICJwMWowZGEiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogODAwMDB9LCB7ImlkIjogInAxajBjbiIsICJnIjogInAxIiwgInQiOiAidHh0IiwgImEiOiBbIuizh+acrOmHkSJdfSwgeyJpZCI6ICJwMWowY2EiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogODAwMDB9LCB7ImlkIjogInAxajFkbiIsICJnIjogInAxIiwgInQiOiAidHh0IiwgImEiOiBbIuePvumHkSJdfSwgeyJpZCI6ICJwMWoxZGEiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogMTIwMDB9LCB7ImlkIjogInAxajFjbiIsICJnIjogInAxIiwgInQiOiAidHh0IiwgImEiOiBbIuWPl+WPluaJi+aVsOaWmSJdfSwgeyJpZCI6ICJwMWoxY2EiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogMTIwMDB9LCB7ImlkIjogInAxajJkbiIsICJnIjogInAxIiwgInQiOiAidHh0IiwgImEiOiBbIumKgOihjOmgkOmHkSIsICLpoJDph5EiXX0sIHsiaWQiOiAicDFqMmRhIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IDQwMDAwfSwgeyJpZCI6ICJwMWoyY24iLCAiZyI6ICJwMSIsICJ0IjogInR4dCIsICJhIjogWyLlgJ/lhaXph5EiXX0sIHsiaWQiOiAicDFqMmNhIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IDQwMDAwfSwgeyJpZCI6ICJwMWozZG4iLCAiZyI6ICJwMSIsICJ0IjogInR4dCIsICJhIjogWyLosrjku5jph5EiXX0sIHsiaWQiOiAicDFqM2RhIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IDMwMDAwfSwgeyJpZCI6ICJwMWozY24iLCAiZyI6ICJwMSIsICJ0IjogInR4dCIsICJhIjogWyLnj77ph5EiXX0sIHsiaWQiOiAicDFqM2NhIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IDMwMDAwfSwgeyJpZCI6ICJwMWo0ZG4iLCAiZyI6ICJwMSIsICJ0IjogInR4dCIsICJhIjogWyLmlK/miZXliKnmga8iXX0sIHsiaWQiOiAicDFqNGRhIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IDgwMH0sIHsiaWQiOiAicDFqNGNuIiwgImciOiAicDEiLCAidCI6ICJ0eHQiLCAiYSI6IFsi6YqA6KGM6aCQ6YeRIiwgIumgkOmHkSJdfSwgeyJpZCI6ICJwMWo0Y2EiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogODAwfSwgeyJpZCI6ICJwMXMwYzAiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogODAwMDB9LCB7ImlkIjogInAxczBjMSIsICJnIjogInAxIiwgInQiOiAibnVtIiwgImEiOiBudWxsfSwgeyJpZCI6ICJwMXMwYzIiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogbnVsbH0sIHsiaWQiOiAicDFzMGMzIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IG51bGx9LCB7ImlkIjogInAxczBjNCIsICJnIjogInAxIiwgInQiOiAibnVtIiwgImEiOiA4MDAwMH0sIHsiaWQiOiAicDFzMGM1IiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IG51bGx9LCB7ImlkIjogInAxczBjNiIsICJnIjogInAxIiwgInQiOiAibnVtIiwgImEiOiBudWxsfSwgeyJpZCI6ICJwMXMxYzAiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogMTIwMDB9LCB7ImlkIjogInAxczFjMSIsICJnIjogInAxIiwgInQiOiAibnVtIiwgImEiOiBudWxsfSwgeyJpZCI6ICJwMXMxYzIiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogbnVsbH0sIHsiaWQiOiAicDFzMWMzIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IG51bGx9LCB7ImlkIjogInAxczFjNCIsICJnIjogInAxIiwgInQiOiAibnVtIiwgImEiOiBudWxsfSwgeyJpZCI6ICJwMXMxYzUiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogMTIwMDB9LCB7ImlkIjogInAxczFjNiIsICJnIjogInAxIiwgInQiOiAibnVtIiwgImEiOiBudWxsfSwgeyJpZCI6ICJwMXMyYzAiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogbnVsbH0sIHsiaWQiOiAicDFzMmMxIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IDQwMDAwfSwgeyJpZCI6ICJwMXMyYzIiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogbnVsbH0sIHsiaWQiOiAicDFzMmMzIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IDQwMDAwfSwgeyJpZCI6ICJwMXMyYzQiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogbnVsbH0sIHsiaWQiOiAicDFzMmM1IiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IG51bGx9LCB7ImlkIjogInAxczJjNiIsICJnIjogInAxIiwgInQiOiAibnVtIiwgImEiOiBudWxsfSwgeyJpZCI6ICJwMXMzYzAiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogLTMwMDAwfSwgeyJpZCI6ICJwMXMzYzEiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogbnVsbH0sIHsiaWQiOiAicDFzM2MyIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IDMwMDAwfSwgeyJpZCI6ICJwMXMzYzMiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogbnVsbH0sIHsiaWQiOiAicDFzM2M0IiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IG51bGx9LCB7ImlkIjogInAxczNjNSIsICJnIjogInAxIiwgInQiOiAibnVtIiwgImEiOiBudWxsfSwgeyJpZCI6ICJwMXMzYzYiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogbnVsbH0sIHsiaWQiOiAicDFzNGMwIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IG51bGx9LCB7ImlkIjogInAxczRjMSIsICJnIjogInAxIiwgInQiOiAibnVtIiwgImEiOiAtODAwfSwgeyJpZCI6ICJwMXM0YzIiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogbnVsbH0sIHsiaWQiOiAicDFzNGMzIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IG51bGx9LCB7ImlkIjogInAxczRjNCIsICJnIjogInAxIiwgInQiOiAibnVtIiwgImEiOiBudWxsfSwgeyJpZCI6ICJwMXM0YzUiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogbnVsbH0sIHsiaWQiOiAicDFzNGM2IiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IDgwMH0sIHsiaWQiOiAicDFiYWwwIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IDYyMDAwfSwgeyJpZCI6ICJwMWJhbDEiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogMzkyMDB9LCB7ImlkIjogInAxYmFsMiIsICJnIjogInAxIiwgInQiOiAibnVtIiwgImEiOiAzMDAwMH0sIHsiaWQiOiAicDFiYWwzIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IDQwMDAwfSwgeyJpZCI6ICJwMWJhbDQiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogODAwMDB9LCB7ImlkIjogInAxYmFsNSIsICJnIjogInAxIiwgInQiOiAibnVtIiwgImEiOiAxMjAwMH0sIHsiaWQiOiAicDFiYWw2IiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IDgwMH0sIHsiaWQiOiAicDFiczEiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogNjIwMDB9LCB7ImlkIjogInAxYnM0IiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IDQwMDAwfSwgeyJpZCI6ICJwMWJzMiIsICJnIjogInAxIiwgInQiOiAibnVtIiwgImEiOiAzOTIwMH0sIHsiaWQiOiAicDFiczUiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogODAwMDB9LCB7ImlkIjogInAxYnMzIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IDMwMDAwfSwgeyJpZCI6ICJwMWJzNiIsICJnIjogInAxIiwgInQiOiAibnVtIiwgImEiOiAxMTIwMH0sIHsiaWQiOiAicDFic3RsIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IDEzMTIwMH0sIHsiaWQiOiAicDFic3RyIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IDEzMTIwMH0sIHsiaWQiOiAicDFwbDEiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogODAwfSwgeyJpZCI6ICJwMXBsMyIsICJnIjogInAxIiwgInQiOiAibnVtIiwgImEiOiAxMjAwMH0sIHsiaWQiOiAicDFwbDIiLCAiZyI6ICJwMSIsICJ0IjogIm51bSIsICJhIjogMTEyMDB9LCB7ImlkIjogInAxcGx0bCIsICJnIjogInAxIiwgInQiOiAibnVtIiwgImEiOiAxMjAwMH0sIHsiaWQiOiAicDFwbHRyIiwgImciOiAicDEiLCAidCI6ICJudW0iLCAiYSI6IDEyMDAwfSwgeyJpZCI6ICJwMmJzdGwiLCAiZyI6ICJwMiIsICJ0IjogIm51bSIsICJhIjogMTM5MH0sIHsiaWQiOiAicDJic3RyIiwgImciOiAicDIiLCAidCI6ICJudW0iLCAiYSI6IDEzOTB9LCB7ImlkIjogInAycGx0bCIsICJnIjogInAyIiwgInQiOiAibnVtIiwgImEiOiA5NzB9LCB7ImlkIjogInAycGx0ciIsICJnIjogInAyIiwgInQiOiAibnVtIiwgImEiOiA5NzB9LCB7ImlkIjogInAzciIsICJnIjogInAzIiwgInQiOiAibnVtIiwgImEiOiAxODAwMH0sIHsiaWQiOiAicDNlIiwgImciOiAicDMiLCAidCI6ICJudW0iLCAiYSI6IDEwMDAwfSwgeyJpZCI6ICJwM3AiLCAiZyI6ICJwMyIsICJ0IjogIm51bSIsICJhIjogODAwMH0sIHsiaWQiOiAicDNic2Nhc2giLCAiZyI6ICJwMyIsICJ0IjogIm51bSIsICJhIjogNzgwMDB9LCB7ImlkIjogInAzeCIsICJnIjogInAzIiwgInQiOiAibnVtIiwgImEiOiAyMDAwMH0sIHsiaWQiOiAicDNic2NhcCIsICJnIjogInAzIiwgInQiOiAibnVtIiwgImEiOiA1MDAwMH0sIHsiaWQiOiAicDNic3AiLCAiZyI6ICJwMyIsICJ0IjogIm51bSIsICJhIjogODAwMH0sIHsiaWQiOiAicDNic3RsIiwgImciOiAicDMiLCAidCI6ICJudW0iLCAiYSI6IDc4MDAwfSwgeyJpZCI6ICJwM2JzdHIiLCAiZyI6ICJwMyIsICJ0IjogIm51bSIsICJhIjogNzgwMDB9LCB7ImlkIjogInAzeDIiLCAiZyI6ICJwMyIsICJ0IjogIm51bSIsICJhIjogMjAwMDB9LCB7ImlkIjogInAzY2FzaCIsICJnIjogInAzIiwgInQiOiAibnVtIiwgImEiOiA3ODAwMH1dLCAic2V0cyI6IFt7ImlkIjogInAyYnNsIiwgImciOiAicDIiLCAiZXhwIjogW3sibiI6IFsi54++6YeRIl0sICJhIjogNTAwfSwgeyJuIjogWyLpioDooYzpoJDph5EiLCAi6aCQ6YeRIl0sICJhIjogMzMwfSwgeyJuIjogWyLlo7Lmjpvph5EiXSwgImEiOiAyMjB9LCB7Im4iOiBbIuWVhuWTgSJdLCAiYSI6IDE1MH0sIHsibiI6IFsi6LK45LuY6YeRIl0sICJhIjogMTkwfV19LCB7ImlkIjogInAyYnNyIiwgImciOiAicDIiLCAiZXhwIjogW3sibiI6IFsi6LK35o6b6YeRIl0sICJhIjogMjUwfSwgeyJuIjogWyLlgJ/lhaXph5EiXSwgImEiOiA0MDB9LCB7Im4iOiBbIuizh+acrOmHkSIsICLos4fmnKzph5HvvIjmnJ/pppbvvIkiLCAi5pyf6aaW6LOH5pys6YeRIiwgIuizh+acrOmHkSjmnJ/pppYpIl0sICJhIjogNTAwfSwgeyJuIjogWyLlvZPmnJ/ntJTliKnnm4oiLCAi5Yip55uKIl0sICJhIjogMjQwfV19LCB7ImlkIjogInAycGxsIiwgImciOiAicDIiLCAiZXhwIjogW3sibiI6IFsi5pSv5omV5a626LODIl0sICJhIjogMjgwfSwgeyJuIjogWyLmlK/miZXliKnmga8iXSwgImEiOiAzMDB9LCB7Im4iOiBbIue1puaWmSJdLCAiYSI6IDE1MH0sIHsibiI6IFsi5b2T5pyf57SU5Yip55uKIiwgIuWIqeebiiJdLCAiYSI6IDI0MH0sIHsibiI6IFsi6LK755So5ZCI6KiIIiwgIuiyu+eUqOioiCJdLCAiYSI6IDczMCwgIm9wdCI6IHRydWV9XX0sIHsiaWQiOiAicDJwbHIiLCAiZyI6ICJwMiIsICJleHAiOiBbeyJuIjogWyLlj5flj5bmiYvmlbDmlpkiXSwgImEiOiA5NzB9XX1dLCAiZ3JvdXBzIjogeyJwMSI6ICLllY8xIEjllYbkvJrjga7kuIDlt6EiLCAicDIiOiAi5ZWPMiDjgrHjg6Tjgq3llYblupfjga5CL1Pjg7tQL0wiLCAicDMiOiAi5ZWPMyBN5ZWG5Lya44Gu6YCG566XIn19";
+window.TABMAP={"p1":0,"p2":1,"p3":2};
+window.CHECKS=function(val,setAmt){
+
+ var o=[],a,b,c,d,e,f;
+ // 問1
+ var dsum=0,csum=0,i,bad=false;
+ for(i=0;i<5;i++){a=val('p1j'+i+'da');b=val('p1j'+i+'ca');if(a===null||b===null||a!==b)bad=true;}
+ o.push({ok:!bad,msg:'問1：仕訳の各行で、借方の金額＝貸方の金額になっている'});
+ a=val('p1bstl');b=val('p1bstr');
+ o.push({ok:(a!==null&&a===b),msg:'問1：B/Sの左の合計と右の合計が一致している'});
+ a=val('p1bs6');b=val('p1pl2');
+ o.push({ok:(a!==null&&a===b),msg:'問1：B/Sの利益とP/Lの利益が一致している'});
+ var pairs=[['p1bal0','p1bs1'],['p1bal1','p1bs2'],['p1bal2','p1bs3']],okp=true;
+ for(i=0;i<3;i++){a=val(pairs[i][0]);b=val(pairs[i][1]);if(a===null||a!==b)okp=false;}
+ o.push({ok:okp,msg:'問1：集計の残高（現金・銀行預金・貸付金）がB/Sの資産と一致している'});
+ // 問2
+ var sumSide=function(id){var rows=document.querySelectorAll('tr[data-set="'+id+'"]'),s=0,r,t;
+   for(r=0;r<rows.length;r++){var q=rows[r].querySelector('[data-sa]').value;t=(function(x){x=String(x).replace(/[！-～]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/[,\s円]/g,'').replace(/[−△▲]/g,'-');return /^-?\d+$/.test(x)?parseInt(x,10):0;})(q);s+=t;}return s;};
+ var bl=sumSide('p2bsl'),br=sumSide('p2bsr'),tl=val('p2bstl'),tr=val('p2bstr');
+ o.push({ok:(tl!==null&&tl===bl),msg:'問2：B/S左の「合計」が、左側の各行の合計になっている'});
+ o.push({ok:(tr!==null&&tr===br),msg:'問2：B/S右の「合計」が、右側の各行の合計になっている'});
+ o.push({ok:(tl!==null&&tl===tr),msg:'問2：B/Sの左の合計と右の合計が一致している'});
+ a=setAmt('p2bsr',['当期純利益','利益']);b=setAmt('p2pll',['当期純利益','利益']);
+ o.push({ok:(a!==null&&a===b),msg:'問2：B/Sの利益とP/Lの利益が一致している'});
+ // 問3
+ a=val('p3x');b=val('p3x2');c=val('p3cash');
+ var l3=val('p3bstl'),r3=val('p3bstr');
+ o.push({ok:(l3!==null&&l3===r3),msg:'問3：(2)B/Sの左の合計と右の合計が一致している'});
+ o.push({ok:(val('p3bsp')!==null&&val('p3bsp')===val('p3p')),msg:'問3：(2)B/Sの利益が、(1)で求めた利益と同じ'});
+ o.push({ok:(a!==null&&a===b),msg:'問3：(2)で求めた x と、(3)の借入の金額が同じ'});
+ o.push({ok:(c!==null&&c===val('p3bscash')),msg:'問3：(3)の現金残高が、(2)B/Sの現金と一致している'});
+ return o;
+};
+
+(function(){
+ var KEY=JSON.parse(decodeURIComponent(escape(atob(KEY_B64))));
+ var attempts=0, LS='bk03_'+KEY_ID;
+ function fw(s){return String(s).replace(/[！-～]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/　/g,' ');}
+ function normTxt(s){return fw(s).replace(/[\s()\[\]]/g,'');}
+ function parseNum(s){
+  s=fw(s).replace(/[,\s円]/g,'').replace(/[−‐‑–—―ー△▲]/g,'-');
+  if(s==='')return null; if(!/^-?\d+$/.test(s))return NaN; return parseInt(s,10);}
+ function byK(id){return document.querySelector('[data-k="'+id+'"]');}
+ function val(id){var e=byK(id);return e?parseNum(e.value):null;}
+ function clearMarks(){
+  var a=document.querySelectorAll('.ok,.ng'),i;
+  for(i=0;i<a.length;i++){a[i].className=a[i].className.replace(/\s*\b(ok|ng)\b/g,'');}
+  var m=document.querySelectorAll('.mark'),j;for(j=m.length-1;j>=0;j--){m[j].parentNode.removeChild(m[j]);}
+ }
+ function setMark(el,ok){
+  el.className=(el.className+(ok?' ok':' ng')).replace(/^\s+/,'');
+  var s=document.createElement('span');s.className='mark '+(ok?'ok':'ng');s.appendChild(document.createTextNode(ok?'○':'×'));
+  if(el.nextSibling)el.parentNode.insertBefore(s,el.nextSibling);else el.parentNode.appendChild(s);
+ }
+ function grade(){
+  clearMarks(); attempts++;
+  var g={},extra=0,k,i;
+  for(k in KEY.groups){g[k]={got:0,total:0};}
+  for(i=0;i<KEY.items.length;i++){
+   var it=KEY.items[i],ok=false,el;
+   if(it.t==='radio'){
+    el=document.querySelector('[data-rg="'+it.id+'"]');
+    var c=document.querySelector('input[name="'+it.id+'"]:checked');
+    g[it.g].total++; ok=!!c&&c.value===it.a; if(ok)g[it.g].got++; setMark(el.lastChild,ok);
+    el.className+=ok?' ok':' ng'; continue;
+   }
+   el=byK(it.id);
+   if(it.a===null){ if(el.value.replace(/\s/g,'')!==''){setMark(el,false);extra++;} continue; }
+   g[it.g].total++;
+   if(it.t==='num'){var v=parseNum(el.value);ok=(v!==null&&v===it.a);}
+   else{var t=normTxt(el.value),j;ok=false;for(j=0;j<it.a.length;j++){if(t!==''&&t===normTxt(it.a[j])){ok=true;break;}}}
+   if(ok)g[it.g].got++; setMark(el,ok);
+  }
+  for(i=0;i<KEY.sets.length;i++){
+   var S=KEY.sets[i],rows=document.querySelectorAll('tr[data-set="'+S.id+'"]'),used=[],r,e2;
+   for(e2=0;e2<S.exp.length;e2++){ if(!S.exp[e2].opt)g[S.g].total++; }
+   var matched=[];
+   for(r=0;r<rows.length;r++){
+    var ne=rows[r].querySelector('[data-sn]'),ae=rows[r].querySelector('[data-sa]');
+    var nv=normTxt(ne.value),av=parseNum(ae.value);
+    if(nv===''&&(ae.value.replace(/\s/g,'')===''))continue;
+    var hit=-1,x,y;
+    for(x=0;x<S.exp.length;x++){
+     if(matched[x])continue;
+     if(av!==S.exp[x].a)continue;
+     for(y=0;y<S.exp[x].n.length;y++){if(nv===normTxt(S.exp[x].n[y])){hit=x;break;}}
+     if(hit>=0)break;
+    }
+    if(hit>=0){matched[hit]=true;if(!S.exp[hit].opt)g[S.g].got++;setMark(ae,true);ne.className+=' ok';}
+    else{setMark(ae,false);ne.className+=' ng';}
+   }
+  }
+  var tg=0,tt=0,html='',ks;
+  for(ks in g){tg+=g[ks].got;tt+=g[ks].total;
+   html+=(html?'・':'')+KEY.groups[ks].split(' ')[0]+' '+g[ks].got+'/'+g[ks].total;}
+  var chk=(window.CHECKS?window.CHECKS(val,function(id,names){return setAmt(id,names);}):[]),ch='',c2,nng=0;
+  for(c2=0;c2<chk.length;c2++){if(!chk[c2].ok){nng++;ch+='<li class="ng">× '+chk[c2].msg+'</li>';}}
+  var res=document.getElementById('result');
+  res.innerHTML='<div class="score">'+tg+' / '+tt+' 点<small>'+html+'</small></div>'+
+   (extra?'<p class="ng" style="background:none">空欄のはずの欄に入力があります：'+extra+'か所</p>':'')+
+   (nng?'<ul>'+ch+'</ul>':'<p class="ok" style="background:none">検算（答え同士の一致）：すべて○</p>')+
+   (window.QUIZ_STAT?'<p class="note">'+window.QUIZ_STAT()+'</p>':'');
+  res.className='card show';
+  if(window.TABMAP){var tb=document.querySelectorAll('.tabs button'),gk;for(gk in g){var ix=window.TABMAP[gk];if(ix===undefined||!tb[ix])continue;var bd=tb[ix].querySelector('.bd'),full=g[gk].got===g[gk].total;bd.className='bd '+(full?'ok':'ng');bd.textContent=full?'✓':g[gk].got+'/'+g[gk].total;}}
+  document.getElementById('ph-score').textContent=tg+' / '+tt+' 点';
+  document.getElementById('ph-att').textContent=attempts+' 回';
+  window.scrollTo(0,0);
+ }
+ function setAmt(sid,names){
+  var rows=document.querySelectorAll('tr[data-set="'+sid+'"]'),r,j;
+  for(r=0;r<rows.length;r++){
+   var nv=normTxt(rows[r].querySelector('[data-sn]').value);
+   for(j=0;j<names.length;j++){if(nv!==''&&nv===normTxt(names[j]))return parseNum(rows[r].querySelector('[data-sa]').value);}
+  }
+  return null;
+ }
+ function stamp(){
+  var d=new Date(),p=function(n){return (n<10?'0':'')+n;};
+  document.getElementById('ph-time').textContent=d.getFullYear()+'/'+p(d.getMonth()+1)+'/'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes());
+  document.getElementById('ph-quiz').textContent=window.QUIZ_STAT?'　／　'+window.QUIZ_STAT():'';
+ }
+ function save(){try{var o={},a=document.querySelectorAll('input[type=text],select'),i;
+   for(i=0;i<a.length;i++){o['t'+i]=a[i].value;}
+   var r=document.querySelectorAll('input[type=radio]:checked');for(i=0;i<r.length;i++){if(r[i].name.indexOf('rq')===0)continue;o['r'+r[i].name]=r[i].value;}
+   o.att=attempts;sessionStorage.setItem(LS,JSON.stringify(o));}catch(e){}}
+ function restore(){try{var s=sessionStorage.getItem(LS);if(!s)return;var o=JSON.parse(s),a=document.querySelectorAll('input[type=text],select'),i;
+   for(i=0;i<a.length;i++){if(o['t'+i]!==undefined)a[i].value=o['t'+i];}
+   for(var k in o){if(k.charAt(0)==='r'){var e=document.querySelector('input[name="'+k.substr(1)+'"][value="'+o[k]+'"]');if(e)e.checked=true;}}
+   attempts=o.att||0;}catch(e){}}
+ function clearAll(){
+  if(!window.confirm('入力した答えをすべて消します。よろしいですか？'))return;
+  var a=document.querySelectorAll('input[type=text],select'),i;for(i=0;i<a.length;i++){if(a[i].id!=='sid'&&a[i].id!=='sname')a[i].value='';}
+  var r=document.querySelectorAll('input[type=radio]');for(i=0;i<r.length;i++)r[i].checked=false;
+  clearMarks();document.getElementById('result').className='card';attempts=0;var bds=document.querySelectorAll('.tabs .bd');for(i=0;i<bds.length;i++){bds[i].className='bd';bds[i].textContent='';}save();
+ }
+ document.getElementById('btn-grade').onclick=function(){stamp();grade();save();};
+ document.getElementById('btn-print').onclick=function(){stamp();if(attempts===0){grade();}window.print();};
+ document.getElementById('btn-clear').onclick=clearAll;
+ (function(){var tb=document.querySelectorAll('.tabs button'),pn=document.querySelectorAll('.panel'),i;
+  function show(k){for(var j=0;j<pn.length;j++){pn[j].className=pn[j].className.replace(/\s*\bon\b/g,'');tb[j].className=tb[j].className.replace(/\s*\bon\b/g,'');}pn[k].className+=' on';tb[k].className+=' on';window.scrollTo(0,0);}
+  for(i=0;i<tb.length;i++){(function(k){tb[k].onclick=function(){show(k);};})(i);}
+  if(tb.length)show(0);})();
+ document.addEventListener('input',save);document.addEventListener('change',save);
+ if(window.addEventListener)window.addEventListener('beforeprint',stamp);
+ restore();
+ window.__grade=grade; window.__KEY=KEY;
+})();
+
+</script>
+</body></html>

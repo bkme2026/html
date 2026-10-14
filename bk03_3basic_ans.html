@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>第3回 ③基本演習 解答欄</title>
+<style>
+:root{--navy:#1a1a2e;--blue:#1565c0;--ltblue:#ddeeff;--ok:#2e7d32;--okbg:#e8f5e9;--ng:#c62828;--ngbg:#ffebee;--yel:#fff8e1;--gray:#666}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:"Meiryo","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;color:#222;background:#f4f6fa;line-height:1.55}
+header.top{background:var(--navy);color:#fff;padding:14px 16px}
+header.top h1{margin:0;font-size:20px}
+header.top .sub{font-size:12px;color:#aab;margin-top:2px}
+.wrap{max-width:980px;margin:0 auto;padding:6px 8px 30px}
+.bar{background:var(--navy);color:#fff;padding:6px 8px;display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.bar .ttl{font-size:15px;font-weight:bold;margin-right:auto}
+.bar button{font-size:14px;padding:5px 11px;border:1px solid #fff}
+.bar button.sub,.bar button.warn{background:#fff}
+.card{background:#fff;border:1px solid #cfd8e6;border-radius:8px;padding:8px 10px;margin:8px 0}
+.card h2{margin:0 0 6px;font-size:15px;color:#fff;background:var(--blue);padding:4px 8px;border-radius:5px}
+.card h3{margin:8px 0 3px;font-size:14px;color:var(--navy);border-left:5px solid var(--blue);padding-left:6px}
+.who{display:flex;gap:10px;flex-wrap:wrap}
+.who label{flex:1 1 220px;font-size:14px}
+.who input{width:100%;font-size:16px;padding:7px;border:1px solid #99a;border-radius:5px}
+.help{font-size:13px;color:#333;background:#eef4ff;border:1px solid #bcd;border-radius:6px;padding:8px 12px}
+.help ul{margin:4px 0 0 18px;padding:0}
+.btns{display:flex;gap:10px;flex-wrap:wrap;margin:12px 0}
+button{font-size:16px;padding:10px 18px;border-radius:7px;border:1px solid var(--blue);background:var(--blue);color:#fff;cursor:pointer;font-family:inherit}
+button.sub{background:#fff;color:var(--blue)}
+button.warn{background:#fff;color:var(--ng);border-color:var(--ng)}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;margin:3px 0;font-size:13px}
+th,td{border:1px solid #556;padding:2px 5px;text-align:center;vertical-align:middle}
+th{background:var(--navy);color:#fff;font-weight:bold}
+th.b{background:var(--blue)}th.g{background:#2e7d32}th.p{background:#6a1b9a}th.r{background:#b71c1c}th.o{background:#e64a19}
+td.l{text-align:left}td.r{text-align:right}td.given{background:#f7f7f7}td.sum{background:#eee;font-weight:bold}
+td.mir{background:#f0f0f0;color:#888;font-size:12px}
+input.n,input.t{font-size:15px;padding:3px 4px;border:1px solid #99a;border-radius:4px;background:var(--yel);font-family:inherit}
+input.n{width:7.5em;text-align:right}
+input.t{width:9em;text-align:center}
+td input.n.w{width:6.2em}
+table.t3 input.n{width:4.8em;font-size:15px}
+table.t3 input.n.w{width:4.8em;font-size:15px}
+table.t3 .mark{display:block;width:auto;font-size:14px;line-height:1.1}
+table.t3 th,table.t3 td{padding:3px 3px}
+.rg label{margin:0 6px;white-space:nowrap;font-size:15px}
+.rg input{width:20px;height:20px;vertical-align:middle;margin-right:3px}
+.ok{background:var(--okbg)!important;border-color:var(--ok)!important}
+.ng{background:var(--ngbg)!important;border-color:var(--ng)!important}
+.mark{display:inline-block;width:1.2em;font-weight:bold;font-size:17px}
+.mark.ok{color:var(--ok);background:none!important}.mark.ng{color:var(--ng);background:none!important}
+.stem{font-size:14px;text-align:left}
+.q{margin:3px 0}
+.note{font-size:12px;color:var(--gray)}
+.two{display:flex;gap:14px;flex-wrap:wrap}.two>div{flex:1 1 320px}
+#result{display:none;border:2px solid var(--blue);margin:6px 0}
+#result.show{display:block}
+#result .score{font-size:20px;font-weight:bold;color:var(--navy)}
+#result .score small{font-size:13px;font-weight:normal;color:#444;margin-left:8px}
+#result ul{margin:2px 0 0 18px;padding:0;font-size:13px}
+#result li{font-size:13px}
+#result p{margin:2px 0}
+#result li.ok{color:var(--ok);background:none!important}#result li.ng{color:var(--ng);background:none!important}
+.qz .zgrid{display:flex;gap:6px;flex-wrap:wrap;margin:4px 0}
+.qz .zgroup{border:2px solid #556;border-radius:8px;overflow:hidden;background:#fff}
+.qz .zgroup.bs{flex:2 1 330px}.qz .zgroup.pl{flex:2 1 300px}
+.qz .zh{color:#fff;text-align:center;font-weight:bold;padding:2px;font-size:13px}
+.qz .zcols{display:flex}
+.qz .zcols>.zone,.qz .zcols>.zstack{flex:1 1 0;min-width:0}
+.qz .zstack{display:flex;flex-direction:column}.qz .zstack>.zone{flex:1 1 0}
+.qz .zone{border:2px solid #999;margin:2px;border-radius:6px;min-height:70px;background:#fafafa;transition:background .1s}
+.qz .zone .zt{color:#fff;text-align:center;font-weight:bold;font-size:15px;padding:1px}
+.qz .zone .zb{min-height:42px;padding:2px}
+.qz .z0{border-color:#1565c0}.qz .z0 .zt{background:#1565c0}
+.qz .z1{border-color:#e64a19}.qz .z1 .zt{background:#e64a19}
+.qz .z2{border-color:#388e3c}.qz .z2 .zt{background:#388e3c}
+.qz .z3{border-color:#b71c1c}.qz .z3 .zt{background:#b71c1c}
+.qz .z4{border-color:#6a1b9a}.qz .z4 .zt{background:#6a1b9a}
+.qz .zone.over{background:#fff9c4}
+.qz .pool{border:2px dashed #889;border-radius:8px;min-height:44px;padding:2px;background:#f4f6fa;margin:4px 0}
+.qz .pool .hint{color:#667;font-size:13px;padding:6px}
+.qz .tile{display:inline-block;margin:2px;padding:5px 10px;border:2px solid #556;border-radius:8px;background:#fff;font-size:15px;font-weight:bold;cursor:grab;user-select:none;-webkit-user-select:none;touch-action:none}
+.qz .tile.sel{outline:3px solid #f9a825}
+.qz .tile.drag{position:fixed;z-index:1000;pointer-events:none;box-shadow:0 6px 14px rgba(0,0,0,.35);opacity:.92}
+.qz .tile.ok{border-color:var(--ok);background:var(--okbg)}.qz .tile.ng{border-color:var(--ng);background:var(--ngbg)}
+#qtime{font-size:24px;font-weight:bold;font-variant-numeric:tabular-nums;color:var(--navy);min-width:5.5em;display:inline-block}
+#qmsg{font-size:15px;font-weight:bold;color:var(--navy);margin:2px 0}
+#qmsg:empty{display:none}
+.qz .qstat{font-size:13px;color:#333}
+.qz .qrow{display:flex;gap:10px;align-items:center;flex-wrap:wrap}
+td.lab{position:relative;background:#fffdf2}
+td.lab::before{content:attr(data-l);position:absolute;left:0;right:0;top:50%;transform:translateY(-50%);text-align:center;font-size:40px;font-weight:bold;color:rgba(21,101,192,.20);pointer-events:none;line-height:1}
+td.lab input,td.lab select{position:relative;background:rgba(255,248,225,.35)}
+select.t{width:11.5em;font-size:15px;padding:3px;border:1px solid #99a;border-radius:4px;font-family:inherit}
+.tabs{display:flex;gap:4px;flex-wrap:wrap;margin:6px 8px 0;max-width:964px}
+@media(min-width:996px){.tabs{margin-left:auto;margin-right:auto}}
+.tabs button{background:#fff;color:var(--blue);border:2px solid var(--blue);font-size:14px;padding:5px 10px;border-radius:7px}
+.tabs button.on{background:var(--blue);color:#fff}
+.tabs .bd{font-size:12px;margin-left:5px;font-weight:bold}
+.tabs .bd.ng{color:#c62828;background:none!important}.tabs .bd.ok{color:#2e7d32;background:none!important}
+.tabs button.on .bd.ng,.tabs button.on .bd.ok{color:#fff}
+.panel{display:none}.panel.on{display:block}
+.printhead{display:none}
+@media print{
+ .tabs{display:none!important}
+ .panel{display:block!important}
+ @page{size:A4;margin:9mm}
+ body{background:#fff;font-size:10.5pt;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+ .bar,.help,.btns,.noprint{display:none!important}
+ .printhead{display:block;border:1px solid #333;padding:6px 10px;margin-bottom:6px;font-size:11pt}
+ .wrap{padding:0;max-width:none}
+ .tw,.two,table{break-inside:avoid}
+ h3{break-after:avoid}
+ .card{margin:6px 0;padding:6px 8px;border-radius:0}
+ .card h2{font-size:12pt;padding:3px 8px}
+ table{font-size:9.5pt}
+ input.n,input.t{border:none!important;font-size:10pt;padding:1px 2px}
+ input.n{width:6em}input.t{width:8em}
+ select.t{border:none!important;font-size:10pt;-webkit-appearance:none;appearance:none;width:9em}
+ .qz .qrow button{display:none}
+}
+</style></head>
+<body>
+<noscript><div class="card" style="border-color:#c62828">JavaScriptを有効にしてください。</div></noscript>
+<div class="bar" id="top"><span class="ttl">第3回 ③基本演習 解答欄</span>
+ <button id="btn-grade" type="button">採点する</button>
+ <button id="btn-print" type="button" class="sub">PDF保存・印刷</button>
+ <button id="btn-clear" type="button" class="warn">入力を消す</button>
+</div>
+<nav class="tabs noprint"><button type="button">問1 分類<span class="bd"></span></button><button type="button">問2 増減と左右<span class="bd"></span></button><button type="button">問3 仕訳・B/S・P/L<span class="bd"></span></button><button type="button">問4 式三つ<span class="bd"></span></button></nav>
+<div class="wrap">
+<div class="card" id="result"></div>
+<div class="printhead">第3回 ③基本演習 解答欄　／　出力：<span id="ph-time"></span>　得点：<b id="ph-score">未採点</b>　採点回数：<span id="ph-att">0 回</span><span id="ph-quiz"></span></div>
+<div class="panel"><div class="card qz"><h2>問1　勘定科目の5要素分類（ドラッグ＆ドロップ・タイム計測）</h2>
+<div class="qrow noprint"><button id="qstart" type="button">スタート</button><span id="qtime">0.0 秒</span><span class="qstat" id="qstat"></span></div>
+<div id="qmsg"></div>
+<div class="pool" id="qpool"><div class="hint">スタートで10個のタイルが出ます。タイルを欄にドラッグ（またはタップ→欄をタップ）。全部置くと自動判定、全問正解で時計が止まります。</div></div>
+<div class="zgrid">
+ <div class="zgroup bs"><div class="zh" style="background:#1a1a2e">B/S（貸借対照表）</div><div class="zcols"><div class="zone z0" data-e="0"><div class="zt">資産</div><div class="zb"></div></div><div class="zstack"><div class="zone z1" data-e="1"><div class="zt">負債</div><div class="zb"></div></div><div class="zone z2" data-e="2"><div class="zt">純資産</div><div class="zb"></div></div></div></div></div>
+ <div class="zgroup pl"><div class="zh" style="background:#444">P/L（損益計算書）</div><div class="zcols"><div class="zone z3" data-e="3"><div class="zt">費用</div><div class="zb"></div></div><div class="zone z4" data-e="4"><div class="zt">収益</div><div class="zb"></div></div></div></div>
+</div></div>
+<script>
+(function(){
+ var EL=['資産','負債','純資産','費用','収益'];
+ var ACC=[['現金',0],['預金（銀行預金）',0],['売掛金',0],['商品',0],['車両運搬具',0],['機械設備',0],['貸付金',0],
+  ['買掛金',1],['借入金',1],['資本金',2],['給料',3],['支払家賃',3],['支払利息',3],['支払手数料',3],['商品売買益',4],['受取手数料',4]];
+ var BK='bk03_q1_best',state='idle',t0=0,timer=null,tiles=[],tries=0,done=0,best=null,sel=null,drag=null;
+ try{var bv=window.localStorage.getItem(BK);if(bv){best=parseFloat(bv);if(isNaN(best))best=null;}}catch(e){}
+ function $(id){return document.getElementById(id);}
+ function shuf(a){var i,j,t;for(i=a.length-1;i>0;i--){j=Math.floor(Math.random()*(i+1));t=a[i];a[i]=a[j];a[j]=t;}return a;}
+ function pick(){
+  var chosen=[],rest=[],e,i,pool,k;
+  for(e=0;e<5;e++){pool=[];for(i=0;i<ACC.length;i++){if(ACC[i][1]===e)pool.push(i);}
+   k=pool[Math.floor(Math.random()*pool.length)];chosen.push(k);}
+  for(i=0;i<ACC.length;i++){if(chosen.indexOf(i)<0)rest.push(i);}
+  shuf(rest);return shuf(chosen.concat(rest.slice(0,5)));
+ }
+ function fmt(sec){return sec.toFixed(2)+' 秒';}
+ function stat(){
+  var h=best===null?'最速：未記録':'最速：'+fmt(best);
+  return h+'（完走 '+done+'／挑戦 '+tries+'）';
+ }
+ function showStat(){$('qstat').textContent=stat();}
+ function zoneOf(t){var p=t.parentNode;while(p&&p!==document){if(p.getAttribute&&p.getAttribute('data-e')!==null&&p.className.indexOf('zone')>=0)return p;if(p.id==='qpool')return null;p=p.parentNode;}return null;}
+ function clearMarks(t){t.className=t.className.replace(/\s*\b(ok|ng)\b/g,'');}
+ function place(t,z){
+  var host=z.id==='qpool'?z:z.querySelector('.zb');
+  var hint=$('qpool').querySelector('.hint');if(hint&&hint.parentNode)hint.parentNode.removeChild(hint);
+  host.appendChild(t);clearMarks(t);
+  if(state==='run'&&$('qpool').querySelectorAll('.tile').length===0)check();
+ }
+ function dropTarget(x,y){
+  var e=document.elementFromPoint(x,y);
+  while(e&&e!==document.body){
+   if(e.id==='qpool')return e;
+   if(e.className&&typeof e.className==='string'&&e.className.indexOf('zone')>=0&&e.getAttribute('data-e')!==null)return e;
+   e=e.parentNode;}
+  return null;
+ }
+ function hover(z){var a=document.querySelectorAll('.qz .zone.over'),i;for(i=0;i<a.length;i++)a[i].className=a[i].className.replace(' over','');if(z&&z.className.indexOf('zone')>=0)z.className+=' over';}
+ function mkTile(i,idx){
+  var t=document.createElement('div');t.className='tile';t.setAttribute('data-i',idx);t.textContent=ACC[i][0];
+  t.addEventListener('pointerdown',function(ev){
+   if(state!=='run')return;
+   drag={el:t,sx:ev.clientX,sy:ev.clientY,moved:false,ox:0,oy:0};
+   try{t.setPointerCapture(ev.pointerId);}catch(e){}
+  });
+  t.addEventListener('pointermove',function(ev){
+   if(!drag||drag.el!==t)return;
+   if(!drag.moved){
+    if(Math.abs(ev.clientX-drag.sx)+Math.abs(ev.clientY-drag.sy)<6)return;
+    var r=t.getBoundingClientRect();drag.moved=true;drag.ox=drag.sx-r.left;drag.oy=drag.sy-r.top;
+    t.className+=' drag';t.style.width=r.width+'px';
+   }
+   t.style.left=(ev.clientX-drag.ox)+'px';t.style.top=(ev.clientY-drag.oy)+'px';
+   hover(dropTarget(ev.clientX,ev.clientY));
+  });
+  var end=function(ev){
+   if(!drag||drag.el!==t)return;
+   var d=drag;drag=null;
+   if(d.moved){
+    var z=dropTarget(ev.clientX,ev.clientY);
+    t.className=t.className.replace(' drag','');t.style.left='';t.style.top='';t.style.width='';hover(null);
+    if(z)place(t,z);
+   }else{
+    if(sel&&sel!==t)sel.className=sel.className.replace(' sel','');
+    if(t.className.indexOf(' sel')>=0){t.className=t.className.replace(' sel','');sel=null;}else{t.className+=' sel';sel=t;}
+   }
+  };
+  t.addEventListener('pointerup',end);t.addEventListener('pointercancel',end);
+  return t;
+ }
+ function zoneClick(ev){
+  if(state!=='run'||!sel)return;
+  var e=ev.target;while(e&&e!==this){if(e.className&&typeof e.className==='string'&&e.className.indexOf('tile')>=0)return;e=e.parentNode;}
+  place(sel,this);sel.className=sel.className.replace(' sel','');sel=null;
+ }
+ var zs=document.querySelectorAll('.qz .zone'),zi;for(zi=0;zi<zs.length;zi++){zs[zi].addEventListener('click',zoneClick);}
+ $('qpool').addEventListener('click',zoneClick);
+ function tick(){$('qtime').textContent=((new Date().getTime()-t0)/1000).toFixed(1)+' 秒';}
+ function clearBoard(){
+  var b=document.querySelectorAll('.qz .zb'),i;for(i=0;i<b.length;i++)b[i].innerHTML='';
+  $('qpool').innerHTML='';sel=null;
+ }
+ function start(){
+  if(timer){clearInterval(timer);timer=null;}
+  clearBoard();tiles=pick();var i;
+  for(i=0;i<tiles.length;i++){$('qpool').appendChild(mkTile(tiles[i],i));}
+  tries++;state='run';t0=new Date().getTime();timer=setInterval(tick,50);tick();
+  $('qmsg').textContent='';
+  $('qstart').textContent='やり直す（新しい10問）';showStat();
+ }
+ function check(){
+  if(state!=='run')return;
+  var all=document.querySelectorAll('.qz .tile'),i,ok=0;
+  for(i=0;i<all.length;i++){
+   var t=all[i],z=zoneOf(t),idx=parseInt(t.getAttribute('data-i'),10);
+   if(z&&parseInt(z.getAttribute('data-e'),10)===ACC[tiles[idx]][1])ok++;
+  }
+  if(ok===10){
+   var sec=(new Date().getTime()-t0)/1000;clearInterval(timer);timer=null;state='done';
+   $('qtime').textContent=sec.toFixed(2)+' 秒';done++;
+   var rec=(best===null||sec<best);if(rec){best=sec;try{window.localStorage.setItem(BK,String(sec));}catch(e){}}
+   $('qmsg').textContent='全問正解！ '+fmt(sec)+(rec?'　最速を更新しました。':'　最速は '+fmt(best)+' です。');
+   $('qstart').textContent='もう一度挑戦（新しい10問）';
+  }else{
+   $('qmsg').textContent='どこかに誤りがあります。自分で見直して、置き直してください。';
+  }
+  showStat();
+ }
+ $('qstart').onclick=start;
+ window.QUIZ_STAT=function(){return '問1 '+stat();};
+ window.__quiz={state:function(){return state;},cur:function(){return tiles.map(function(k){return ACC[k];});},best:function(){return best;},stat:stat};
+ showStat();
+})();
+</script></div>
+<div class="panel"><div class="card"><h2>問2　増減と左右</h2>
+<div class="two"><div><h3>(1) 要素：左か右か</h3><div class="tw"><table class=""><tr><td>(1)</td><td class="l">資産の増加</td><td><span class="rg" data-rg="q1a1"><label><input type="radio" name="q1a1" value="L">左</label><label><input type="radio" name="q1a1" value="R">右</label></span></td></tr><tr><td>(2)</td><td class="l">資産の減少</td><td><span class="rg" data-rg="q1a2"><label><input type="radio" name="q1a2" value="L">左</label><label><input type="radio" name="q1a2" value="R">右</label></span></td></tr><tr><td>(3)</td><td class="l">負債の増加</td><td><span class="rg" data-rg="q1a3"><label><input type="radio" name="q1a3" value="L">左</label><label><input type="radio" name="q1a3" value="R">右</label></span></td></tr><tr><td>(4)</td><td class="l">負債の減少</td><td><span class="rg" data-rg="q1a4"><label><input type="radio" name="q1a4" value="L">左</label><label><input type="radio" name="q1a4" value="R">右</label></span></td></tr><tr><td>(5)</td><td class="l">純資産（資本）の増加</td><td><span class="rg" data-rg="q1a5"><label><input type="radio" name="q1a5" value="L">左</label><label><input type="radio" name="q1a5" value="R">右</label></span></td></tr><tr><td>(6)</td><td class="l">純資産（資本）の減少</td><td><span class="rg" data-rg="q1a6"><label><input type="radio" name="q1a6" value="L">左</label><label><input type="radio" name="q1a6" value="R">右</label></span></td></tr><tr><td>(7)</td><td class="l">収益の発生</td><td><span class="rg" data-rg="q1a7"><label><input type="radio" name="q1a7" value="L">左</label><label><input type="radio" name="q1a7" value="R">右</label></span></td></tr><tr><td>(8)</td><td class="l">費用の発生</td><td><span class="rg" data-rg="q1a8"><label><input type="radio" name="q1a8" value="L">左</label><label><input type="radio" name="q1a8" value="R">右</label></span></td></tr></table></div></div>
+<div><h3>(2) 勘定科目：左か右か</h3><div class="tw"><table class=""><tr><td>(1)</td><td class="l">現金が増えた</td><td><span class="rg" data-rg="q1b1"><label><input type="radio" name="q1b1" value="L">左</label><label><input type="radio" name="q1b1" value="R">右</label></span></td></tr><tr><td>(2)</td><td class="l">借入金が増えた</td><td><span class="rg" data-rg="q1b2"><label><input type="radio" name="q1b2" value="L">左</label><label><input type="radio" name="q1b2" value="R">右</label></span></td></tr><tr><td>(3)</td><td class="l">受取手数料が発生した</td><td><span class="rg" data-rg="q1b3"><label><input type="radio" name="q1b3" value="L">左</label><label><input type="radio" name="q1b3" value="R">右</label></span></td></tr><tr><td>(4)</td><td class="l">給料が発生した</td><td><span class="rg" data-rg="q1b4"><label><input type="radio" name="q1b4" value="L">左</label><label><input type="radio" name="q1b4" value="R">右</label></span></td></tr><tr><td>(5)</td><td class="l">現金が減った</td><td><span class="rg" data-rg="q1b5"><label><input type="radio" name="q1b5" value="L">左</label><label><input type="radio" name="q1b5" value="R">右</label></span></td></tr><tr><td>(6)</td><td class="l">借入金を返した（減少）</td><td><span class="rg" data-rg="q1b6"><label><input type="radio" name="q1b6" value="L">左</label><label><input type="radio" name="q1b6" value="R">右</label></span></td></tr></table></div></div></div></div></div>
+<div class="panel"><div class="card"><h2>問3　ケヤキ商会の仕訳・集計・B/S・P/L</h2>
+<div class="tw"><table class=""><tr><td>4/1</td><td class="l">現金 30,000円 を元入れ（資本金）して、ケヤキ商会を開業した</td></tr><tr><td>4/5</td><td class="l">清掃業務を行い、手数料 15,000円 を現金で受け取った</td></tr><tr><td>4/10</td><td class="l">銀行から現金 60,000円 を借入れた</td></tr><tr><td>4/25</td><td class="l">従業員に給料 8,700円 を現金で支払った</td></tr><tr><td>4/30</td><td class="l">今月分の店舗家賃 5,700円 を現金で支払った</td></tr></table></div>
+<h3>(1) 仕訳</h3><div class="tw"><table class=""><tr><th>日付</th><th>借方（左）</th><th>金額</th><th>貸方（右）</th><th>金額</th></tr>
+<tr><td>4/1</td><td class="lab" data-l="a"><select class="t sel" data-k="q2a" aria-label="q2a"><option value="">― 選択 ―</option><option value="売掛金">売掛金</option><option value="資本金">資本金</option><option value="現金">現金</option><option value="貸付金">貸付金</option><option value="預金（銀行預金）">預金（銀行預金）</option><option value="商品">商品</option><option value="借入金">借入金</option></select></td><td class="given r">30,000</td><td class="given">資本金</td><td class="given r">30,000</td></tr>
+<tr><td>4/5</td><td class="given">現金</td><td class="given r">15,000</td><td class="lab" data-l="b"><select class="t sel" data-k="q2b" aria-label="q2b"><option value="">― 選択 ―</option><option value="支払手数料">支払手数料</option><option value="商品売買益">商品売買益</option><option value="給料">給料</option><option value="受取手数料">受取手数料</option><option value="支払利息">支払利息</option><option value="資本金">資本金</option><option value="支払家賃">支払家賃</option></select></td><td class="given r">15,000</td></tr>
+<tr><td>4/10</td><td class="given">現金</td><td class="lab" data-l="c"><input type="text" class="n" data-k="q2c" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q2c"></td><td class="lab" data-l="d"><select class="t sel" data-k="q2d" aria-label="q2d"><option value="">― 選択 ―</option><option value="貸付金">貸付金</option><option value="買掛金">買掛金</option><option value="預金（銀行預金）">預金（銀行預金）</option><option value="資本金">資本金</option><option value="借入金">借入金</option><option value="支払利息">支払利息</option><option value="現金">現金</option></select></td><td class="mir">c と同じ</td></tr>
+<tr><td>4/25</td><td class="lab" data-l="e"><select class="t sel" data-k="q2e" aria-label="q2e"><option value="">― 選択 ―</option><option value="支払家賃">支払家賃</option><option value="受取手数料">受取手数料</option><option value="支払手数料">支払手数料</option><option value="支払利息">支払利息</option><option value="商品売買益">商品売買益</option><option value="給料">給料</option><option value="資本金">資本金</option></select></td><td class="given r">8,700</td><td class="given">現金</td><td class="given r">8,700</td></tr>
+<tr><td>4/30</td><td class="lab" data-l="f"><select class="t sel" data-k="q2f" aria-label="q2f"><option value="">― 選択 ―</option><option value="給料">給料</option><option value="支払手数料">支払手数料</option><option value="機械設備">機械設備</option><option value="支払利息">支払利息</option><option value="車両運搬具">車両運搬具</option><option value="商品売買益">商品売買益</option><option value="支払家賃">支払家賃</option></select></td><td class="given r">5,700</td><td class="given">現金</td><td class="given r">5,700</td></tr></table></div>
+<h3>(2) 集計（残高）</h3><div class="tw"><table class=""><tr><th></th><th class="b">現金</th><th class="g">資本金</th><th class="p">受取手数料</th><th class="o">借入金</th><th class="r">給料</th><th class="r">支払家賃</th></tr><tr><td>4/1</td><td class="given r">30,000</td><td class="given r">30,000</td><td class="given r"></td><td class="given r"></td><td class="given r"></td><td class="given r"></td></tr><tr><td>4/5</td><td class="given r">15,000</td><td class="given r"></td><td class="given r">15,000</td><td class="given r"></td><td class="given r"></td><td class="given r"></td></tr><tr><td>4/10</td><td class="mir">c と同じ</td><td class="given r"></td><td class="given r"></td><td class="mir">c と同じ</td><td class="given r"></td><td class="given r"></td></tr><tr><td>4/25</td><td class="given r">−8,700</td><td class="given r"></td><td class="given r"></td><td class="given r"></td><td class="given r">8,700</td><td class="given r"></td></tr><tr><td>4/30</td><td class="given r">−5,700</td><td class="given r"></td><td class="given r"></td><td class="given r"></td><td class="given r"></td><td class="given r">5,700</td></tr><tr><td class="sum">残高</td><td><input type="text" class="n w" data-k="q2bal0" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q2bal0"></td><td><input type="text" class="n w" data-k="q2bal1" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q2bal1"></td><td><input type="text" class="n w" data-k="q2bal2" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q2bal2"></td><td><input type="text" class="n w" data-k="q2bal3" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q2bal3"></td><td><input type="text" class="n w" data-k="q2bal4" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q2bal4"></td><td><input type="text" class="n w" data-k="q2bal5" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q2bal5"></td></tr></table></div>
+<h3>(3) B/S・P/L</h3><div class="two"><div><div class="tw"><table class=""><tr><th colspan="4" class="b">B/S（ケヤキ商会 4/30）</th></tr><tr><th>資産</th><th>金額</th><th>負債・純資産</th><th>金額</th></tr><tr><td class="l">現金</td><td><input type="text" class="n w" data-k="q2bscash" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q2bscash"></td><td class="l">借入金（負債）</td><td class="given r">60,000</td></tr><tr><td></td><td></td><td class="l">資本金（純資産）</td><td class="given r">30,000</td></tr><tr><td></td><td></td><td class="l">利益（純資産）</td><td class="lab" data-l="g"><input type="text" class="n w" data-k="q2g" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q2g"></td></tr><tr><td class="sum l">合計</td><td><input type="text" class="n w" data-k="q2bstl" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q2bstl"></td><td class="sum l">合計</td><td><input type="text" class="n w" data-k="q2bstr" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q2bstr"></td></tr></table></div></div><div><div class="tw"><table class=""><tr><th colspan="4" class="g">P/L（ケヤキ商会 4/1〜4/30）</th></tr><tr><th>費用</th><th>金額</th><th>収益</th><th>金額</th></tr><tr><td class="l">給料</td><td class="given r">8,700</td><td class="l">受取手数料</td><td class="given r">15,000</td></tr><tr><td class="l">支払家賃</td><td class="given r">5,700</td><td></td><td></td></tr><tr><td class="l">費用計</td><td class="lab" data-l="h"><input type="text" class="n w" data-k="q2h" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q2h"></td><td></td><td></td></tr><tr><td class="l">利益</td><td class="lab" data-l="i"><input type="text" class="n w" data-k="q2i" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q2i"></td><td></td><td></td></tr><tr><td class="sum l">合計</td><td class="given r">15,000</td><td class="sum l">合計</td><td class="given r">15,000</td></tr></table></div></div></div></div></div>
+<div class="panel"><div class="card"><h2>問4　式三つ（復習）</h2>
+<p class="note">式① 資産−負債＝資本　式② 収益−費用＝利益　式③ 期末資本＝期首資本＋利益（損失は−）</p>
+<div class="tw"><table class="t3"><tr><th rowspan="2">No.</th><th colspan="3" class="b">期首</th><th colspan="3" class="g">期末</th><th colspan="3" class="p">当期</th></tr><tr><th>資産</th><th>負債</th><th>資本</th><th>資産</th><th>負債</th><th>資本</th><th>収益</th><th>費用</th><th>利益</th></tr><tr><td>1</td><td class="given r">600</td><td class="given r">300</td><td><input type="text" class="n w" data-k="q3r1c3" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q3r1c3"></td><td><input type="text" class="n w" data-k="q3r1c4" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q3r1c4"></td><td class="given r">400</td><td><input type="text" class="n w" data-k="q3r1c6" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q3r1c6"></td><td class="given r">390</td><td class="given r">500</td><td><input type="text" class="n w" data-k="q3r1c9" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q3r1c9"></td></tr><tr><td>2</td><td><input type="text" class="n w" data-k="q3r2c1" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q3r2c1"></td><td class="given r">600</td><td><input type="text" class="n w" data-k="q3r2c3" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q3r2c3"></td><td class="given r">900</td><td><input type="text" class="n w" data-k="q3r2c5" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q3r2c5"></td><td class="given r">400</td><td><input type="text" class="n w" data-k="q3r2c7" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q3r2c7"></td><td class="given r">500</td><td class="given r">50</td></tr><tr><td>3</td><td class="given r">800</td><td><input type="text" class="n w" data-k="q3r3c2" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q3r3c2"></td><td class="given r">400</td><td class="given r">900</td><td class="given r">450</td><td><input type="text" class="n w" data-k="q3r3c6" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q3r3c6"></td><td class="given r">1,200</td><td><input type="text" class="n w" data-k="q3r3c8" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q3r3c8"></td><td><input type="text" class="n w" data-k="q3r3c9" inputmode="text" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="" aria-label="q3r3c9"></td></tr></table></div></div></div>
+<div class="btns noprint"><button type="button" class="sub" onclick="window.scrollTo(0,0)">↑ 上に戻る</button></div>
+</div>
+<script>
+var KEY_ID="basic03";
+var KEY_B64="eyJpdGVtcyI6IFt7ImlkIjogInExYTEiLCAiZyI6ICJxMSIsICJ0IjogInJhZGlvIiwgImEiOiAiTCJ9LCB7ImlkIjogInExYTIiLCAiZyI6ICJxMSIsICJ0IjogInJhZGlvIiwgImEiOiAiUiJ9LCB7ImlkIjogInExYTMiLCAiZyI6ICJxMSIsICJ0IjogInJhZGlvIiwgImEiOiAiUiJ9LCB7ImlkIjogInExYTQiLCAiZyI6ICJxMSIsICJ0IjogInJhZGlvIiwgImEiOiAiTCJ9LCB7ImlkIjogInExYTUiLCAiZyI6ICJxMSIsICJ0IjogInJhZGlvIiwgImEiOiAiUiJ9LCB7ImlkIjogInExYTYiLCAiZyI6ICJxMSIsICJ0IjogInJhZGlvIiwgImEiOiAiTCJ9LCB7ImlkIjogInExYTciLCAiZyI6ICJxMSIsICJ0IjogInJhZGlvIiwgImEiOiAiUiJ9LCB7ImlkIjogInExYTgiLCAiZyI6ICJxMSIsICJ0IjogInJhZGlvIiwgImEiOiAiTCJ9LCB7ImlkIjogInExYjEiLCAiZyI6ICJxMSIsICJ0IjogInJhZGlvIiwgImEiOiAiTCJ9LCB7ImlkIjogInExYjIiLCAiZyI6ICJxMSIsICJ0IjogInJhZGlvIiwgImEiOiAiUiJ9LCB7ImlkIjogInExYjMiLCAiZyI6ICJxMSIsICJ0IjogInJhZGlvIiwgImEiOiAiUiJ9LCB7ImlkIjogInExYjQiLCAiZyI6ICJxMSIsICJ0IjogInJhZGlvIiwgImEiOiAiTCJ9LCB7ImlkIjogInExYjUiLCAiZyI6ICJxMSIsICJ0IjogInJhZGlvIiwgImEiOiAiUiJ9LCB7ImlkIjogInExYjYiLCAiZyI6ICJxMSIsICJ0IjogInJhZGlvIiwgImEiOiAiTCJ9LCB7ImlkIjogInEyYSIsICJnIjogInEyIiwgInQiOiAidHh0IiwgImEiOiBbIuePvumHkSJdfSwgeyJpZCI6ICJxMmIiLCAiZyI6ICJxMiIsICJ0IjogInR4dCIsICJhIjogWyLlj5flj5bmiYvmlbDmlpkiXX0sIHsiaWQiOiAicTJjIiwgImciOiAicTIiLCAidCI6ICJudW0iLCAiYSI6IDYwMDAwfSwgeyJpZCI6ICJxMmQiLCAiZyI6ICJxMiIsICJ0IjogInR4dCIsICJhIjogWyLlgJ/lhaXph5EiXX0sIHsiaWQiOiAicTJlIiwgImciOiAicTIiLCAidCI6ICJ0eHQiLCAiYSI6IFsi57Wm5paZIl19LCB7ImlkIjogInEyZiIsICJnIjogInEyIiwgInQiOiAidHh0IiwgImEiOiBbIuaUr+aJleWutuizgyJdfSwgeyJpZCI6ICJxMmJhbDAiLCAiZyI6ICJxMiIsICJ0IjogIm51bSIsICJhIjogOTA2MDB9LCB7ImlkIjogInEyYmFsMSIsICJnIjogInEyIiwgInQiOiAibnVtIiwgImEiOiAzMDAwMH0sIHsiaWQiOiAicTJiYWwyIiwgImciOiAicTIiLCAidCI6ICJudW0iLCAiYSI6IDE1MDAwfSwgeyJpZCI6ICJxMmJhbDMiLCAiZyI6ICJxMiIsICJ0IjogIm51bSIsICJhIjogNjAwMDB9LCB7ImlkIjogInEyYmFsNCIsICJnIjogInEyIiwgInQiOiAibnVtIiwgImEiOiA4NzAwfSwgeyJpZCI6ICJxMmJhbDUiLCAiZyI6ICJxMiIsICJ0IjogIm51bSIsICJhIjogNTcwMH0sIHsiaWQiOiAicTJic2Nhc2giLCAiZyI6ICJxMiIsICJ0IjogIm51bSIsICJhIjogOTA2MDB9LCB7ImlkIjogInEyZyIsICJnIjogInEyIiwgInQiOiAibnVtIiwgImEiOiA2MDB9LCB7ImlkIjogInEyYnN0bCIsICJnIjogInEyIiwgInQiOiAibnVtIiwgImEiOiA5MDYwMH0sIHsiaWQiOiAicTJic3RyIiwgImciOiAicTIiLCAidCI6ICJudW0iLCAiYSI6IDkwNjAwfSwgeyJpZCI6ICJxMmgiLCAiZyI6ICJxMiIsICJ0IjogIm51bSIsICJhIjogMTQ0MDB9LCB7ImlkIjogInEyaSIsICJnIjogInEyIiwgInQiOiAibnVtIiwgImEiOiA2MDB9LCB7ImlkIjogInEzcjFjMyIsICJnIjogInEzIiwgInQiOiAibnVtIiwgImEiOiAzMDB9LCB7ImlkIjogInEzcjFjNCIsICJnIjogInEzIiwgInQiOiAibnVtIiwgImEiOiA1OTB9LCB7ImlkIjogInEzcjFjNiIsICJnIjogInEzIiwgInQiOiAibnVtIiwgImEiOiAxOTB9LCB7ImlkIjogInEzcjFjOSIsICJnIjogInEzIiwgInQiOiAibnVtIiwgImEiOiAtMTEwfSwgeyJpZCI6ICJxM3IyYzEiLCAiZyI6ICJxMyIsICJ0IjogIm51bSIsICJhIjogOTUwfSwgeyJpZCI6ICJxM3IyYzMiLCAiZyI6ICJxMyIsICJ0IjogIm51bSIsICJhIjogMzUwfSwgeyJpZCI6ICJxM3IyYzUiLCAiZyI6ICJxMyIsICJ0IjogIm51bSIsICJhIjogNTAwfSwgeyJpZCI6ICJxM3IyYzciLCAiZyI6ICJxMyIsICJ0IjogIm51bSIsICJhIjogNTUwfSwgeyJpZCI6ICJxM3IzYzIiLCAiZyI6ICJxMyIsICJ0IjogIm51bSIsICJhIjogNDAwfSwgeyJpZCI6ICJxM3IzYzYiLCAiZyI6ICJxMyIsICJ0IjogIm51bSIsICJhIjogNDUwfSwgeyJpZCI6ICJxM3IzYzgiLCAiZyI6ICJxMyIsICJ0IjogIm51bSIsICJhIjogMTE1MH0sIHsiaWQiOiAicTNyM2M5IiwgImciOiAicTMiLCAidCI6ICJudW0iLCAiYSI6IDUwfV0sICJzZXRzIjogW10sICJncm91cHMiOiB7InExIjogIuWVjzIg5aKX5rib44Go5bem5Y+zIiwgInEyIjogIuWVjzMg5LuV6Kiz44O76ZuG6KiI44O7Qi9T44O7UC9MIiwgInEzIjogIuWVjzQg5byP5LiJ44Gk77yI5b6p57+S77yJIn19";
+window.TABMAP={"q1":1,"q2":2,"q3":3};
+window.CHECKS=function(val,setAmt){
+
+ var o=[];
+ var tl=val('q2bstl'),tr=val('q2bstr'),g=val('q2g'),i=val('q2i'),h=val('q2h');
+ if(tl!==null&&tr!==null)o.push({ok:tl===tr,msg:'問3：B/Sの左の合計と右の合計が一致している'});
+ else o.push({ok:false,msg:'問3：B/Sの合計が未入力'});
+ if(g!==null&&i!==null)o.push({ok:g===i,msg:'問3：B/Sの利益（g）とP/Lの利益（i）が一致している'});
+ else o.push({ok:false,msg:'問3：利益（g・i）が未入力'});
+ if(h!==null&&i!==null)o.push({ok:(h+i)===15000,msg:'問3：P/Lで 費用計(h)＋利益(i)＝収益 15,000 になっている'});
+ else o.push({ok:false,msg:'問3：費用計・利益（h・i）が未入力'});
+ return o;
+};
+
+(function(){
+ var KEY=JSON.parse(decodeURIComponent(escape(atob(KEY_B64))));
+ var attempts=0, LS='bk03_'+KEY_ID;
+ function fw(s){return String(s).replace(/[！-～]/g,function(c){return String.fromCharCode(c.charCodeAt(0)-0xFEE0);}).replace(/　/g,' ');}
+ function normTxt(s){return fw(s).replace(/[\s()\[\]]/g,'');}
+ function parseNum(s){
+  s=fw(s).replace(/[,\s円]/g,'').replace(/[−‐‑–—―ー△▲]/g,'-');
+  if(s==='')return null; if(!/^-?\d+$/.test(s))return NaN; return parseInt(s,10);}
+ function byK(id){return document.querySelector('[data-k="'+id+'"]');}
+ function val(id){var e=byK(id);return e?parseNum(e.value):null;}
+ function clearMarks(){
+  var a=document.querySelectorAll('.ok,.ng'),i;
+  for(i=0;i<a.length;i++){a[i].className=a[i].className.replace(/\s*\b(ok|ng)\b/g,'');}
+  var m=document.querySelectorAll('.mark'),j;for(j=m.length-1;j>=0;j--){m[j].parentNode.removeChild(m[j]);}
+ }
+ function setMark(el,ok){
+  el.className=(el.className+(ok?' ok':' ng')).replace(/^\s+/,'');
+  var s=document.createElement('span');s.className='mark '+(ok?'ok':'ng');s.appendChild(document.createTextNode(ok?'○':'×'));
+  if(el.nextSibling)el.parentNode.insertBefore(s,el.nextSibling);else el.parentNode.appendChild(s);
+ }
+ function grade(){
+  clearMarks(); attempts++;
+  var g={},extra=0,k,i;
+  for(k in KEY.groups){g[k]={got:0,total:0};}
+  for(i=0;i<KEY.items.length;i++){
+   var it=KEY.items[i],ok=false,el;
+   if(it.t==='radio'){
+    el=document.querySelector('[data-rg="'+it.id+'"]');
+    var c=document.querySelector('input[name="'+it.id+'"]:checked');
+    g[it.g].total++; ok=!!c&&c.value===it.a; if(ok)g[it.g].got++; setMark(el.lastChild,ok);
+    el.className+=ok?' ok':' ng'; continue;
+   }
+   el=byK(it.id);
+   if(it.a===null){ if(el.value.replace(/\s/g,'')!==''){setMark(el,false);extra++;} continue; }
+   g[it.g].total++;
+   if(it.t==='num'){var v=parseNum(el.value);ok=(v!==null&&v===it.a);}
+   else{var t=normTxt(el.value),j;ok=false;for(j=0;j<it.a.length;j++){if(t!==''&&t===normTxt(it.a[j])){ok=true;break;}}}
+   if(ok)g[it.g].got++; setMark(el,ok);
+  }
+  for(i=0;i<KEY.sets.length;i++){
+   var S=KEY.sets[i],rows=document.querySelectorAll('tr[data-set="'+S.id+'"]'),used=[],r,e2;
+   for(e2=0;e2<S.exp.length;e2++){ if(!S.exp[e2].opt)g[S.g].total++; }
+   var matched=[];
+   for(r=0;r<rows.length;r++){
+    var ne=rows[r].querySelector('[data-sn]'),ae=rows[r].querySelector('[data-sa]');
+    var nv=normTxt(ne.value),av=parseNum(ae.value);
+    if(nv===''&&(ae.value.replace(/\s/g,'')===''))continue;
+    var hit=-1,x,y;
+    for(x=0;x<S.exp.length;x++){
+     if(matched[x])continue;
+     if(av!==S.exp[x].a)continue;
+     for(y=0;y<S.exp[x].n.length;y++){if(nv===normTxt(S.exp[x].n[y])){hit=x;break;}}
+     if(hit>=0)break;
+    }
+    if(hit>=0){matched[hit]=true;if(!S.exp[hit].opt)g[S.g].got++;setMark(ae,true);ne.className+=' ok';}
+    else{setMark(ae,false);ne.className+=' ng';}
+   }
+  }
+  var tg=0,tt=0,html='',ks;
+  for(ks in g){tg+=g[ks].got;tt+=g[ks].total;
+   html+=(html?'・':'')+KEY.groups[ks].split(' ')[0]+' '+g[ks].got+'/'+g[ks].total;}
+  var chk=(window.CHECKS?window.CHECKS(val,function(id,names){return setAmt(id,names);}):[]),ch='',c2,nng=0;
+  for(c2=0;c2<chk.length;c2++){if(!chk[c2].ok){nng++;ch+='<li class="ng">× '+chk[c2].msg+'</li>';}}
+  var res=document.getElementById('result');
+  res.innerHTML='<div class="score">'+tg+' / '+tt+' 点<small>'+html+'</small></div>'+
+   (extra?'<p class="ng" style="background:none">空欄のはずの欄に入力があります：'+extra+'か所</p>':'')+
+   (nng?'<ul>'+ch+'</ul>':'<p class="ok" style="background:none">検算（答え同士の一致）：すべて○</p>')+
+   (window.QUIZ_STAT?'<p class="note">'+window.QUIZ_STAT()+'</p>':'');
+  res.className='card show';
+  if(window.TABMAP){var tb=document.querySelectorAll('.tabs button'),gk;for(gk in g){var ix=window.TABMAP[gk];if(ix===undefined||!tb[ix])continue;var bd=tb[ix].querySelector('.bd'),full=g[gk].got===g[gk].total;bd.className='bd '+(full?'ok':'ng');bd.textContent=full?'✓':g[gk].got+'/'+g[gk].total;}}
+  document.getElementById('ph-score').textContent=tg+' / '+tt+' 点';
+  document.getElementById('ph-att').textContent=attempts+' 回';
+  window.scrollTo(0,0);
+ }
+ function setAmt(sid,names){
+  var rows=document.querySelectorAll('tr[data-set="'+sid+'"]'),r,j;
+  for(r=0;r<rows.length;r++){
+   var nv=normTxt(rows[r].querySelector('[data-sn]').value);
+   for(j=0;j<names.length;j++){if(nv!==''&&nv===normTxt(names[j]))return parseNum(rows[r].querySelector('[data-sa]').value);}
+  }
+  return null;
+ }
+ function stamp(){
+  var d=new Date(),p=function(n){return (n<10?'0':'')+n;};
+  document.getElementById('ph-time').textContent=d.getFullYear()+'/'+p(d.getMonth()+1)+'/'+p(d.getDate())+' '+p(d.getHours())+':'+p(d.getMinutes());
+  document.getElementById('ph-quiz').textContent=window.QUIZ_STAT?'　／　'+window.QUIZ_STAT():'';
+ }
+ function save(){try{var o={},a=document.querySelectorAll('input[type=text],select'),i;
+   for(i=0;i<a.length;i++){o['t'+i]=a[i].value;}
+   var r=document.querySelectorAll('input[type=radio]:checked');for(i=0;i<r.length;i++){if(r[i].name.indexOf('rq')===0)continue;o['r'+r[i].name]=r[i].value;}
+   o.att=attempts;sessionStorage.setItem(LS,JSON.stringify(o));}catch(e){}}
+ function restore(){try{var s=sessionStorage.getItem(LS);if(!s)return;var o=JSON.parse(s),a=document.querySelectorAll('input[type=text],select'),i;
+   for(i=0;i<a.length;i++){if(o['t'+i]!==undefined)a[i].value=o['t'+i];}
+   for(var k in o){if(k.charAt(0)==='r'){var e=document.querySelector('input[name="'+k.substr(1)+'"][value="'+o[k]+'"]');if(e)e.checked=true;}}
+   attempts=o.att||0;}catch(e){}}
+ function clearAll(){
+  if(!window.confirm('入力した答えをすべて消します。よろしいですか？'))return;
+  var a=document.querySelectorAll('input[type=text],select'),i;for(i=0;i<a.length;i++){if(a[i].id!=='sid'&&a[i].id!=='sname')a[i].value='';}
+  var r=document.querySelectorAll('input[type=radio]');for(i=0;i<r.length;i++)r[i].checked=false;
+  clearMarks();document.getElementById('result').className='card';attempts=0;var bds=document.querySelectorAll('.tabs .bd');for(i=0;i<bds.length;i++){bds[i].className='bd';bds[i].textContent='';}save();
+ }
+ document.getElementById('btn-grade').onclick=function(){stamp();grade();save();};
+ document.getElementById('btn-print').onclick=function(){stamp();if(attempts===0){grade();}window.print();};
+ document.getElementById('btn-clear').onclick=clearAll;
+ (function(){var tb=document.querySelectorAll('.tabs button'),pn=document.querySelectorAll('.panel'),i;
+  function show(k){for(var j=0;j<pn.length;j++){pn[j].className=pn[j].className.replace(/\s*\bon\b/g,'');tb[j].className=tb[j].className.replace(/\s*\bon\b/g,'');}pn[k].className+=' on';tb[k].className+=' on';window.scrollTo(0,0);}
+  for(i=0;i<tb.length;i++){(function(k){tb[k].onclick=function(){show(k);};})(i);}
+  if(tb.length)show(0);})();
+ document.addEventListener('input',save);document.addEventListener('change',save);
+ if(window.addEventListener)window.addEventListener('beforeprint',stamp);
+ restore();
+ window.__grade=grade; window.__KEY=KEY;
+})();
+
+</script>
+</body></html>
